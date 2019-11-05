@@ -1,9 +1,13 @@
 package dk.hejselbak.weapon;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlElement;
+
 /**
-* A single range modifier, where the OB modifier is the penalty given to the OB.
-* The ranges (from and to) are in feet, and inclusive.
+* A single range modifier, where the OB modifier is the penalty (+/-) given to the OB.
+* The ranges (from and to) are in feet, and both inclusive.
 */
+@XmlRootElement(name = "range")
 public class Range implements Comparable<Range> {
   private int obModifier;
   private int from;
@@ -15,14 +19,15 @@ public class Range implements Comparable<Range> {
     this.to = to;
   }
 
+  @XmlElement(name = "obModifier")
   public int getOBModifier() {
     return obModifier;
   }
-
+  @XmlElement(name = "from")
   public int getFrom() {
     return from;
   }
-
+  @XmlElement(name = "to")
   public int getTo() {
     return to;
   }

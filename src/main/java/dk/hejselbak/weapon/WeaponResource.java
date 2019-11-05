@@ -13,14 +13,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
-import java.util.LinkedHashMap;
-import java.util.TreeSet;
-import java.util.Optional;
-
-import javax.ws.rs.NotFoundException;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Content;
 
 @Path("/weapons")
 @Produces(MediaType.APPLICATION_JSON)
@@ -69,6 +65,12 @@ public class WeaponResource {
 
   @GET
   @Path("/{id}")
+  @Operation(summary = "Locate a specific weapon",
+    description = "Returns a weapon, with the given id",
+    responses = {
+      @ApiResponse(responseCode = "200", description = "The weapon", content = @Content(schema = @Schema(implementation = Weapon.class))),
+      @ApiResponse(responseCode = "404", description = "Weapon not found, with the given id")
+    })
   public Weapon getWeapon(@PathParam("id") int id) {
     for (Weapon w : weapons) {
       if (w.getId() == id) {
@@ -77,6 +79,4 @@ public class WeaponResource {
     }
     throw new NotFoundException();
   }
-
-
 }
