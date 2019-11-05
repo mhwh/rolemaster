@@ -2,7 +2,7 @@ package dk.hejselbak.weapon;
 
 import java.util.SortedSet;
 
-public class Weapon {
+public class Weapon implements Comparable<Weapon> {
   private int id;
   private String name;
   private WeaponGroup group;
@@ -21,6 +21,13 @@ public class Weapon {
 
   public Weapon(int id, String name, WeaponGroup group, int fumble) {
     this(id, name, group, fumble, new RangeBuilder().build());
+  }
+
+  /**
+  * Sorts the weapon after id, where lowest id comes first.
+  */
+  public int compareTo(Weapon obj) {
+    return id - obj.id;
   }
 
 	public int getId() {
