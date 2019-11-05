@@ -1,6 +1,9 @@
 package dk.hejselbak.weapon;
 
 public enum WeaponGroup {
-  ONE_HANDED_EDGED,
-  TWO_HANDED_EDGED
+  ONE_HANDED_SLASHING,
+  ONE_HANDED_CONCUSSION,
+  MISSILE,
+  TWO_HANDED,
+  POLE_ARM
 }

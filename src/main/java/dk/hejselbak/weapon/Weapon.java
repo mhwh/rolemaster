@@ -1,23 +1,61 @@
 package dk.hejselbak.weapon;
 
+import java.util.SortedSet;
+
 public class Weapon {
-  public int id;
-  public String name;
-  public WeaponGroup group;
-  public int fumble;
-  public int range;
+  private int id;
+  private String name;
+  private WeaponGroup group;
+  private int fumble;
+  private SortedSet<Range> ranges;
 
   public Weapon() {}
 
-  public Weapon(int id, String name, WeaponGroup group, int fumble, int range) {
+  public Weapon(int id, String name, WeaponGroup group, int fumble, SortedSet<Range> ranges) {
     this.id = id;
     this.name = name;
     this.group = group;
     this.fumble = fumble;
-    this.range = range;
+    this.ranges = ranges;
   }
 
-  public int getId() {
-    return id;
+  public Weapon(int id, String name, WeaponGroup group, int fumble) {
+    this(id, name, group, fumble, new RangeBuilder().build());
   }
+
+	public int getId() {
+		return id;
+	}
+
+	/**
+	* Returns value of name
+	* @return
+	*/
+	public String getName() {
+		return name;
+	}
+
+	/**
+	* Returns value of group
+	* @return
+	*/
+	public WeaponGroup getGroup() {
+		return group;
+	}
+
+	/**
+	* Returns value of fumble
+	* @return
+	*/
+  public int getFumble() {
+		return fumble;
+	}
+
+	/**
+	* Returns value of range
+	* @return
+	*/
+	public SortedSet<Range> getRanges() {
+		return ranges;
+	}
 }
