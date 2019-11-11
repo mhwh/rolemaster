@@ -14,7 +14,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.parameters>true</maven.compiler.parameters>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
-    <swagger-core-version>2.0.10/swagger-core-version>
+    <swagger-core-version>2.0.10</swagger-core-version>
   </properties>
   <dependencyManagement>
     <dependencies>
