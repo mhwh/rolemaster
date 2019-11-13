@@ -9,12 +9,12 @@
     <surefire-plugin.version>2.22.0</surefire-plugin.version>
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.source>1.8</maven.compiler.source>
-    <quarkus.version>0.28.0</quarkus.version>
+    <quarkus.version>1.0.0.CR1</quarkus.version> <!-- 0.28.0-->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.parameters>true</maven.compiler.parameters>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
-    <swagger-core-version>2.0.10/swagger-core-version>
+    <swagger-core-version>2.0.10</swagger-core-version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -46,14 +46,6 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
-
-    <!-- Swagger dependencies -->
-    <dependency>
-        <groupId>io.swagger.core.v3</groupId>
-        <artifactId>swagger-jaxrs2</artifactId>
-        <version>${swagger-core-version}</version>
-    </dependency>
-
     <dependency>
         <groupId>javax.ws.rs</groupId>
         <artifactId>javax.ws.rs-api</artifactId>
@@ -64,7 +56,18 @@
         <artifactId>javax.servlet-api</artifactId>
         <version>3.1.0</version>
     </dependency>
-
+    <!-- Logging dependencies -->
+    <dependency> 
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.9</version>
+    </dependency>
+    <!-- Swagger dependencies -->
+    <dependency>
+        <groupId>io.swagger.core.v3</groupId>
+        <artifactId>swagger-jaxrs2</artifactId>
+        <version>${swagger-core-version}</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>

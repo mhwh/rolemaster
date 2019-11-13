@@ -7,6 +7,9 @@ import java.util.LinkedHashMap;
 import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -34,8 +37,10 @@ import io.swagger.v3.oas.annotations.media.Content;
 public class WeaponResource {
 
   private SortedSet<Weapon> weapons = new TreeSet<Weapon>();
+  private final Logger log = LoggerFactory.getLogger(WeaponResource.class);
 
   public WeaponResource() {
+    log.info("Starting Weapon Resource Service ...");
     initiateWeapons();
   }
 
@@ -102,9 +107,13 @@ public class WeaponResource {
   private void initiateWeapons() {
     AttackTableEntry[][] table;
 
-    table = new AttackTableBuilder().addEntry(1, 90, 7).addEntry(1, 95, 8, "A", "S").addEntry(1, 150, 18, "E", "S").
+    log.debug("Initialising the weapons...");
+
+    table = new AttackTableBuilder().
       addEntry(20, 40, 1).addEntry(20, 77, 2).addEntry(20, 114, 3).addEntry(20, 145, 3, "A", "K").addEntry(20, 146, 3, "A", "P").addEntry(20, 149, 3, "B", "P").addEntry(20, 150, 3, "C", "P").
       addEntry(19, 50, 1).addEntry(19, 75, 2).addEntry(19, 100, 3).addEntry(19, 125, 4).addEntry(19, 140, 4, "A", "K").addEntry(19, 141, 4, "A", "P").addEntry(19, 146, 4, "B", "P").addEntry(19, 149, 4, "C", "P").
+      addEntry(18, 60, 1).addEntry(18, 82, 2).addEntry(18, 105, 3).addEntry(18, 128, 4).addEntry(18, 130, 4, "A", "K").addEntry(18, 131, 4, "A", "P").addEntry(18, 132, 4, "A", "S").addEntry(18, 133, 4, "A", "P").addEntry(18, 134, 4, "A", "S").addEntry(18, 135, 4, "A", "P").addEntry(18, 136, 4, "A", "S").addEntry(18, 137, 4, "A", "P").addEntry(18, 138, 4, "A", "S").addEntry(18, 139, 4, "A", "P").addEntry(18, 140, 4, "B", "P").addEntry(18, 145, 4, "C", "P").addEntry(18, 149, 4, "D", "P").addEntry(18, 150, 4, "E", "P").
+      addEntry(1, 90, 7).addEntry(1, 95, 8, "A", "S").addEntry(1, 150, 18, "E", "S").
       build();
     weapons.add(new Weapon(0, "Dagger", WeaponGroup.ONE_HANDED_SLASHING, 1, table, new RangeBuilder().addRange(-10, 1, 10).addRange(-20, 11, 25).addRange(-30, 26, 50).build()));
 
@@ -138,5 +147,7 @@ public class WeaponResource {
     weapons.add(new Weapon(27, "Lance", WeaponGroup.POLE_ARM, 7));
     weapons.add(new Weapon(28, "Pole arm", WeaponGroup.POLE_ARM, 7));
     weapons.add(new Weapon(29, "Spear", WeaponGroup.POLE_ARM, 5, new RangeBuilder().addRange(-10, 1, 10).addRange(-20, 11, 25).addRange(-30, 26, 50).build()));
+
+    log.debug("[DONE] Initialising the weapons...");
   }
 }
