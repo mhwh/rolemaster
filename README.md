@@ -1,5 +1,9 @@
 # rolemaster
 A microservice implementation of the data/functionality you would need in order for you to create a new character in Rolemaster.
+
+Change history:
+No released version yet...
+
 Goals:
 Version 1.0: 
 A implementation of the weapons, attacktables and critical tables defined in Armslaw. Nothing more or less, only the weapons and their attacktable, and crittables.
