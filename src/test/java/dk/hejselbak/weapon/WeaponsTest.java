@@ -1,4 +1,4 @@
-package dk.hejselbak;
+package dk.hejselbak.weapon;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
@@ -10,9 +10,9 @@ import static org.hamcrest.CoreMatchers.is;
 public class WeaponsTest {
 
     @Test
-    public void testHelloEndpoint() {
+    public void testSpecificWeaponEndpoint) {
         given()
-          .when().get("/weapon")
+          .when().get("/weapons/0")
           .then()
              .statusCode(200)
              .body(is("hello"));
