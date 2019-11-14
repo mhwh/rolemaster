@@ -4,10 +4,10 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Singleton;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 @ApplicationScoped
 public class WeaponService {
