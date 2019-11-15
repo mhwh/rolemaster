@@ -2,25 +2,49 @@ package dk.hejselbak.weapon;
 
 import java.util.SortedSet;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.SortNatural;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 
-@XmlRootElement(name = "Weapon")
+@XmlRootElement(name = "weapon")
+@Entity
+@Table(name="weapon")
 public class Weapon implements Comparable<Weapon> {
+  @Transient
+  private final Logger log = LoggerFactory.getLogger(Weapon.class);
+
+  @Id
   private int id;
   private String name;
-  private WeaponGroup group;
   private int fumble;
+  
+  @Enumerated(EnumType.STRING)
+  private WeaponGroup weapon_group;
+  
+  @OneToMany(cascade = CascadeType.ALL)
+  @SortNatural
   private SortedSet<Range> ranges;
-  private AttackTableEntry[][] table = new AttackTableEntry[20][150];
+
+  @Transient private AttackTableEntry[][] table = new AttackTableEntry[20][150];
 
   public Weapon() {}
-
 
   public Weapon(int id, String name, WeaponGroup group, int fumble, SortedSet<Range> ranges) {
     this.id = id;
     this.name = name;
-    this.group = group;
+    this.weapon_group = group;
     this.fumble = fumble;
     this.ranges = ranges;
   }
@@ -74,7 +98,7 @@ public class Weapon implements Comparable<Weapon> {
 	*/
   @XmlElement(name = "group")
 	public WeaponGroup getGroup() {
-		return group;
+		return weapon_group;
 	}
 
 	/**
@@ -93,6 +117,15 @@ public class Weapon implements Comparable<Weapon> {
   @XmlElementWrapper(name = "ranges")
   @XmlElement(name = "range")
 	public SortedSet<Range> getRanges() {
+    log.debug(toString());
 		return ranges;
-	}
+  }
+
+  @Override
+  public String toString() {
+    return "Weapon [fumble=" + fumble + ", id=" + id + ", log=" + log + ", name=" + name + ", ranges=" + ranges
+        + ", weapon_group=" + weapon_group + "]";
+  }
+  
+  
 }

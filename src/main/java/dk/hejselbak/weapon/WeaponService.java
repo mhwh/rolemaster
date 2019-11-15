@@ -4,7 +4,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Singleton;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,9 +15,12 @@ public class WeaponService {
 
     private final SortedSet<Weapon> weapons = new TreeSet<Weapon>();
     private final Logger log = LoggerFactory.getLogger(WeaponService.class);
+    
+    @Inject 
+    private EntityManager em; 
 
     public WeaponService() {
-        initiateWeapons();
+        //initiateWeapons();
     }
 
     public SortedSet<Weapon> getWeapons() {
@@ -24,14 +28,7 @@ public class WeaponService {
     }
 
     public Weapon getWeapon(int id) {
-        Weapon result = null;
-        for (Weapon w : weapons) {
-            if (w.getId() == id) {
-              result = w;
-              break;
-            }
-        }
-        return result;
+        return em.find(Weapon.class, id);
     }
 
     public AttackTableEntry hit(Weapon weapon, int at, int roll) {
@@ -91,6 +88,12 @@ public class WeaponService {
         weapons.add(new Weapon(29, "Spear", WeaponGroup.POLE_ARM, 5, new RangeBuilder().addRange(-10, 1, 10).addRange(-20, 11, 25).addRange(-30, 26, 50).build()));
     
         log.debug("[DONE] Initialising the weapons...");
+        for (Weapon w: weapons) {
+            for (Range r : w.getRanges()) {
+                log.debug("insert into range(id, obModifier, from_distance, to_distance, weapon_fk) values(, " + r.getOBModifier()+", " + r.getFrom()+", "+r.getTo()+", "+w.getId()+");");
+            }
+            // log.debug("insert into weapon(id, name, fumble) values(" + w.getId() + ", '"+ w.getName()+"', " + w.getFumble() + ");");
+        } 
       }
 
 }
