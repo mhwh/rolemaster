@@ -1,5 +1,6 @@
 package dk.hejselbak.weapon;
 
+import java.util.List;
 import java.util.SortedSet;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -27,15 +28,13 @@ public class Weapon implements Comparable<Weapon> {
   private WeaponGroup weapon_group;
   
   @ElementCollection(fetch = FetchType.LAZY)
-  @CollectionTable(name = "weapon_range", joinColumns = @JoinColumn(name = "weapon_fk"))
-/*  @AttributeOverrides({
-          @AttributeOverride(name = "addressLine1", column = @Column(name = "house_number")),
-          @AttributeOverride(name = "addressLine2", column = @Column(name = "street"))
-  })*/  
+  @CollectionTable(name = "weapon_range", joinColumns = @JoinColumn(name = "weapon_id"))
   @SortNatural
   private SortedSet<Range> ranges;
 
-  @Transient private AttackTableEntry[][] table = new AttackTableEntry[20][150];
+  @OneToMany(fetch = FetchType.LAZY, targetEntity=AttackTableEntry.class, mappedBy="weapon")
+  @OrderBy("armourtype DESC, roll DESC") // at 20, roll 150 and down through the rolls and at types...
+  private List<AttackTableEntry> attackTable;
 
   public Weapon() {}
 
@@ -46,13 +45,9 @@ public class Weapon implements Comparable<Weapon> {
     return id - obj.id;
   }
 
-  public void setAttackTable(AttackTableEntry[][] table) {
-    this.table = table;
-  }
-
   @XmlElement(name = "attackTable")
-  public final AttackTableEntry[][] getAttackTable() {
-    return table;
+  public List<AttackTableEntry> getAttackTable() {
+    return attackTable;
   }
 
   @XmlElement(name = "id")
@@ -100,8 +95,8 @@ public class Weapon implements Comparable<Weapon> {
 
   @Override
   public String toString() {
-    return "Weapon [fumble=" + fumble + ", id=" + id + ", log=" + log + ", name=" + name + ", ranges=" + ranges
-        + ", weapon_group=" + weapon_group + "]";
+    return "Weapon [fumble=" + fumble + ", id=" + id + ",name=" + name + ", ranges=" + ranges
+        + ", weapon_group=" + weapon_group + ", attack_table=" + attackTable + "]";
   }
   
   

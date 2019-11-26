@@ -1,44 +1,84 @@
 package dk.hejselbak.weapon;
 
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 
-@XmlRootElement(name = "attackTableResult")
+@XmlRootElement(name = "attackTableEntry")
+@Entity
 public class AttackTableEntry {
-    private final int hits;
-    private final CritSeverity critSeverity;
-    private final CritTable critTable;
+  @Transient
+  private final Logger log = LoggerFactory.getLogger(AttackTableEntry.class);
 
-    public static final AttackTableEntry NO_HIT = new AttackTableEntry(0);
+  @Id
+  private long id;
+  private int armourtype;
+  private int roll;
+  @NotNull
+  private int hits;
+  
+  @Enumerated(EnumType.STRING)
+  @Column(name = "crit_severity")
+  private CritSeverity critSeverity;
 
-  	/**
-  	* Default AttackTableEntry constructor
-  	*/
-  	public AttackTableEntry(int hits, CritSeverity critSeverity, CritTable critTable) {
-  		this.hits = hits;
-  		this.critSeverity = critSeverity;
-  		this.critTable = critTable;
-  	}
+  @ManyToOne(fetch=FetchType.LAZY)
+  private CritTable critTable;
 
-    public AttackTableEntry(int hits) {
-      this.hits = hits;
-      this.critSeverity = null;
-      this.critTable = null;
-    }
+  @ManyToOne
+  private Weapon weapon;
 
+  @Transient
+  public static final AttackTableEntry NO_HIT = new AttackTableEntry(0);
 
-    @XmlElement(name="hits")
-    public int getHits() {
-      return hits;
-    }
+  private AttackTableEntry(int hits) {
+    this.id = -1;
+    this.hits = hits;
+  }
 
-    @XmlElement(name="severity")
-    public CritSeverity getCritSeverity() {
-      return critSeverity;
-    }
+  public AttackTableEntry() {
+  }
 
-    @XmlElement(name="table")
-    public CritTable getCritTable() {
-      return critTable;
-    }
+  @XmlElement
+  public int getArmourType() {
+    return armourtype;
+  }
+
+  @XmlElement
+  public int getRoll() {
+    return roll;
+  }
+
+  @XmlElement(name="hits")
+  public int getHits() {
+    return hits;
+  }
+
+  @XmlElement(name="severity")
+  public CritSeverity getCritSeverity() {
+    return critSeverity;
+  }
+
+  @XmlElement(name="table")
+  public CritTable getCritTable() {
+    return critTable;
+  }
+
+  @Override
+  public String toString() {
+    return "AttackTableEntry [id=" + id + ", armourtype=" + armourtype + ", roll=" + roll + ", hits=" + hits + ", critSeverity=" + critSeverity + ", critTable=" + critTable + "]";
+  }
+
+  
 }

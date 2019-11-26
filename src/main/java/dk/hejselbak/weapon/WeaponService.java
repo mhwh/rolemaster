@@ -1,5 +1,8 @@
 package dk.hejselbak.weapon;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -27,20 +30,17 @@ public class WeaponService {
     }
 
     public Weapon getWeapon(int id) {
-        Weapon weapon = em.find(Weapon.class, id);
-        log.debug("Found " + weapon.toString());
-        return weapon;
+        return em.find(Weapon.class, id);
     }
 
     public AttackTableEntry hit(Weapon weapon, int at, int roll) {
-        AttackTableEntry[][] table = weapon.getAttackTable();
-        AttackTableEntry result;
+        List<AttackTableEntry> table = weapon.getAttackTable();
 
-        do {
-        result = table[at-1][roll-1];
-        roll--;
-        } while (result == null && roll > 1);
-
-        return (result != null) ? result : AttackTableEntry.NO_HIT;
+        if (table == null || table.size() == 0) {
+            log.debug("No HIT on weapon (" + weapon.getName() + ") attackroll (at:" + at + ", roll:" + roll + "). ");
+            return AttackTableEntry.NO_HIT;
+        }
+        Optional<AttackTableEntry> result = table.stream().filter(entry -> entry.getArmourType() == at && roll >= entry.getRoll()).findFirst();
+        return result.isPresent() ? result.get() : AttackTableEntry.NO_HIT;
     }
 }
