@@ -7,14 +7,7 @@ import org.hibernate.annotations.SortNatural;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 
@@ -33,7 +26,12 @@ public class Weapon implements Comparable<Weapon> {
   @Enumerated(EnumType.STRING)
   private WeaponGroup weapon_group;
   
-  @OneToMany(cascade = CascadeType.ALL)
+  @ElementCollection(fetch = FetchType.LAZY)
+  @CollectionTable(name = "weapon_range", joinColumns = @JoinColumn(name = "weapon_fk"))
+/*  @AttributeOverrides({
+          @AttributeOverride(name = "addressLine1", column = @Column(name = "house_number")),
+          @AttributeOverride(name = "addressLine2", column = @Column(name = "street"))
+  })*/  
   @SortNatural
   private SortedSet<Range> ranges;
 
@@ -41,27 +39,6 @@ public class Weapon implements Comparable<Weapon> {
 
   public Weapon() {}
 
-  public Weapon(int id, String name, WeaponGroup group, int fumble, SortedSet<Range> ranges) {
-    this.id = id;
-    this.name = name;
-    this.weapon_group = group;
-    this.fumble = fumble;
-    this.ranges = ranges;
-  }
-
-  public Weapon(int id, String name, WeaponGroup group, int fumble, AttackTableEntry[][] table, SortedSet<Range> ranges) {
-    this(id, name, group, fumble, ranges);
-    this.table = table;
-  }
-
-  public Weapon(int id, String name, WeaponGroup group, int fumble) {
-    this(id, name, group, fumble, new RangeBuilder().build());
-  }
-
-  public Weapon(int id, String name, WeaponGroup group, int fumble, AttackTableEntry[][] table) {
-    this(id, name, group, fumble);
-    this.table = table;
-  }
   /**
   * Sorts the weapon after id, where lowest id comes first.
   */
