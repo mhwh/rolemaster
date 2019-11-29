@@ -20,6 +20,10 @@ public class CritTable {
 
   public CritTable() {}
 
+  public long getId() {
+    return id;
+  }
+
   @XmlElement(name="name")
   public String getName() {
     return name;

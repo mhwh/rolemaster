@@ -1,6 +1,5 @@
 package dk.hejselbak.weapon;
 
-import java.util.List;
 import java.util.SortedSet;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -32,9 +31,22 @@ public class Weapon implements Comparable<Weapon> {
   @SortNatural
   private SortedSet<Range> ranges;
 
-  @OneToMany(fetch = FetchType.LAZY, targetEntity=AttackTableEntry.class, mappedBy="weapon")
-  @OrderBy("armourtype DESC, roll DESC") // at 20, roll 150 and down through the rolls and at types...
-  private List<AttackTableEntry> attackTable;
+  @Enumerated(EnumType.STRING)
+  private ArmorDBModTableLaw armorTableLaw;
+
+  @ManyToOne(fetch=FetchType.LAZY)
+  private CritTable critTable;
+
+  private int skinModifier;
+  private float skinFactor;
+  private int softModifier;
+  private float softFactor;
+  private int rigidModifier;
+  private float rigidFactor;
+  private int chainModifier;
+  private float chainFactor;
+  private int plateModifier;
+  private float plateFactor;
 
   public Weapon() {}
 
@@ -45,47 +57,26 @@ public class Weapon implements Comparable<Weapon> {
     return id - obj.id;
   }
 
-  @XmlElement(name = "attackTable")
-  public List<AttackTableEntry> getAttackTable() {
-    return attackTable;
-  }
-
   @XmlElement(name = "id")
 	public int getId() {
 		return id;
 	}
 
-	/**
-	* Returns value of name
-	* @return
-	*/
   @XmlElement(name = "name")
 	public String getName() {
 		return name;
 	}
 
-	/**
-	* Returns value of group
-	* @return
-	*/
   @XmlElement(name = "group")
 	public WeaponGroup getGroup() {
 		return weapon_group;
 	}
 
-	/**
-	* Returns value of fumble
-	* @return
-	*/
   @XmlElement(name = "fumble")
   public int getFumble() {
 		return fumble;
 	}
 
-	/**
-	* Returns value of range
-	* @return
-	*/
   @XmlElementWrapper(name = "ranges")
   @XmlElement(name = "range")
 	public SortedSet<Range> getRanges() {
@@ -93,11 +84,90 @@ public class Weapon implements Comparable<Weapon> {
 		return ranges;
   }
 
+  public ArmorDBModTableLaw getArmorTableLaw() {
+    return armorTableLaw;
+  }
+
+  public CritTable getCritTable() {
+    return critTable;
+  }
+
+  public int getSkinModifier() {
+    return skinModifier;
+  }
+
+  public float getSkinFactor() {
+    return skinFactor;
+  }
+
+  public int getSoftModifier() {
+    return softModifier;
+  }
+
+  public float getSoftFactor() {
+    return softFactor;
+  }
+
+  public int getRigidModifier() {
+    return rigidModifier;
+  }
+
+  public float getRigidFactor() {
+    return rigidFactor;
+  }
+
+  public int getChainModifier() {
+    return chainModifier;
+  }
+
+  public float getChainFactor() {
+    return chainFactor;
+  }
+
+  public int getPlateModifier() {
+    return plateModifier;
+  }
+
+  public float getPlateFactor() {
+    return plateFactor;
+  }
+
+  public float getATFactor(int at) {
+    if (at > 16) {
+      return getPlateFactor();
+    } else if (at > 12) {
+      return getChainFactor();
+    } else if (at > 8) {
+      return getRigidFactor();
+    } else if (at > 4) {
+      return getSoftFactor();
+    } else {
+      return getSkinFactor();
+    }
+  }
+
+  public int getATModifier(int at) {
+    if (at > 16) {
+      return getPlateModifier();
+    } else if (at > 12) {
+      return getChainModifier();
+    } else if (at > 8) {
+      return getRigidModifier();
+    } else if (at > 4) {
+      return getSoftModifier();
+    } else {
+      return getSkinModifier();
+    }
+  }
+
   @Override
   public String toString() {
-    return "Weapon [fumble=" + fumble + ", id=" + id + ",name=" + name + ", ranges=" + ranges
-        + ", weapon_group=" + weapon_group + ", attack_table=" + attackTable + "]";
+    return "Weapon [armorTableLaw=" + armorTableLaw + ", chainFactor=" + chainFactor + ", chainModifier="
+        + chainModifier + ", critTable=" + critTable + ", fumble=" + fumble + ", id=" + id + ", name=" + name
+        + ", plateFactor=" + plateFactor + ", plateModifier=" + plateModifier + ", ranges=" + ranges + ", rigidFactor="
+        + rigidFactor + ", rigidModifier=" + rigidModifier + ", skinFaktor=" + skinFaktor + ", skinModifier="
+        + skinModifier + ", softFactor=" + softFactor + ", softModifier=" + softModifier + ", weapon_group="
+        + weapon_group + "]";
   }
-  
-  
+
 }

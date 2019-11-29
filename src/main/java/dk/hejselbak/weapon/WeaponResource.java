@@ -38,7 +38,7 @@ public class WeaponResource {
   private final Logger log = LoggerFactory.getLogger(WeaponResource.class);
   
   @Inject
-  private WeaponService service;
+  WeaponService service;
 
   public WeaponResource() {
     log.info("Starting Weapon Resource Service ...");
@@ -66,10 +66,10 @@ public class WeaponResource {
   @Path("/{id}/hit")
   @Operation(summary = "Looks up the result of a hit with the specific weapon on the specific AT.",
     description = "Returns a attack result, that can be 0, a number of hits, or a number of hits and a crit (severity and type)")
-  @APIResponse(responseCode = "200", description = "The attack result", content = @Content(schema = @Schema(implementation = AttackTableEntry.class)))
+  @APIResponse(responseCode = "200", description = "The attack result", content = @Content(schema = @Schema(implementation = AttackResult.class)))
   @APIResponse(responseCode = "400", description = "Invalid parameters, either at or modifiedRoll are not valid.")
   @APIResponse(responseCode = "404", description = "Weapon not found, with the given id")
-  public AttackTableEntry hit(@PathParam("id") int id, @NotNull @QueryParam("at") Integer at, @NotNull @QueryParam("modifiedRoll") Integer roll) {
+  public AttackResult hit(@PathParam("id") int id, @NotNull @QueryParam("at") Integer at, @NotNull @QueryParam("modifiedRoll") Integer roll) {
     Weapon weapon = getWeapon(id);
 
     if (at == null || at < 1 || at > 20) {
@@ -79,10 +79,10 @@ public class WeaponResource {
           .build()
       );
     }
-    if (roll == null || roll <= weapon.getFumble() || roll > 150) {
+    if (roll == null || roll <= weapon.getFumble()) {
       throw new WebApplicationException(
         Response.status(HttpURLConnection.HTTP_BAD_REQUEST)
-          .entity("'modifiedRoll' parameter is mandatory. It must be 150 or below, and above the fumble of the chosen weapon (" + weapon.getName() + " fumble is " + weapon.getFumble() + ").")
+          .entity("'modifiedRoll' parameter is mandatory. It must be above the fumble of the chosen weapon (" + weapon.getName() + " fumble is " + weapon.getFumble() + ").")
           .build()
       );
     }
