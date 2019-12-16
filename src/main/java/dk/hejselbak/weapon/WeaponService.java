@@ -24,7 +24,7 @@ public class WeaponService {
     }
 
     public SortedSet<Weapon> getWeapons() {
-        return weapons;
+        return new TreeSet<Weapon>(em.createQuery("select w from Weapon w", Weapon.class).getResultList());
     }
 
     public Weapon getWeapon(int id) {

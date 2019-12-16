@@ -72,6 +72,7 @@ public class WeaponResource {
   public AttackResult hit(@PathParam("id") int id, @NotNull @QueryParam("at") Integer at, @NotNull @QueryParam("modifiedRoll") Integer roll) {
     Weapon weapon = getWeapon(id);
 
+    // Valicate input parameters...
     if (at == null || at < 1 || at > 20) {
       throw new WebApplicationException(
         Response.status(HttpURLConnection.HTTP_BAD_REQUEST)
@@ -86,6 +87,7 @@ public class WeaponResource {
           .build()
       );
     }
+    
     return service.hit(weapon, at, roll);
   }
 

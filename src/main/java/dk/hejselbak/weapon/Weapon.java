@@ -165,7 +165,7 @@ public class Weapon implements Comparable<Weapon> {
     return "Weapon [armorTableLaw=" + armorTableLaw + ", chainFactor=" + chainFactor + ", chainModifier="
         + chainModifier + ", critTable=" + critTable + ", fumble=" + fumble + ", id=" + id + ", name=" + name
         + ", plateFactor=" + plateFactor + ", plateModifier=" + plateModifier + ", ranges=" + ranges + ", rigidFactor="
-        + rigidFactor + ", rigidModifier=" + rigidModifier + ", skinFaktor=" + skinFaktor + ", skinModifier="
+        + rigidFactor + ", rigidModifier=" + rigidModifier + ", skinFactor=" + skinFactor + ", skinModifier="
         + skinModifier + ", softFactor=" + softFactor + ", softModifier=" + softModifier + ", weapon_group="
         + weapon_group + "]";
   }
