@@ -25,7 +25,7 @@ public class WeaponResourceTest {
             .when().get("/weapons/5")
             .then()
                 .statusCode(200)
-                .body(is("{\"armorTableLaw\":\"AL\",\"chainFactor\":10.4,\"chainModifier\":0,\"critTable\":{\"id\":11,\"name\":\"Puncture\",\"shortName\":\"P\"},\"fumble\":4,\"group\":\"ONE_HANDED_SLASHING\",\"id\":5,\"name\":\"Rapier\",\"plateFactor\":23.7,\"plateModifier\":18,\"ranges\":[],\"rigidFactor\":9.1,\"rigidModifier\":-4,\"skinFactor\":5.3,\"skinModifier\":10,\"softFactor\":7.5,\"softModifier\":5}"));
+                .body(is("{\"armorTableLaw\":\"AL\",\"chainFactor\":10.4,\"chainModifier\":0,\"critTable\":{\"id\":11,\"name\":\"Puncture\",\"shortName\":\"P\"},\"fumble\":4,\"id\":5,\"name\":\"Rapier\",\"plateFactor\":23.7,\"plateModifier\":18,\"ranges\":[],\"rigidFactor\":9.1,\"rigidModifier\":-4,\"skinFactor\":5.3,\"skinModifier\":10,\"softFactor\":7.5,\"softModifier\":5,\"weaponGroup\":\"ONE_HANDED_SLASHING\"}"));
     }
 
     @Test
@@ -34,7 +34,7 @@ public class WeaponResourceTest {
             .when().get("/weapons/0")
             .then()
                 .statusCode(200)
-                .body(is("{\"armorTableLaw\":\"AL\",\"chainFactor\":10.7,\"chainModifier\":-20,\"critTable\":{\"id\":11,\"name\":\"Puncture\",\"shortName\":\"P\"},\"fumble\":1,\"group\":\"ONE_HANDED_SLASHING\",\"id\":0,\"name\":\"Dagger\",\"plateFactor\":22.9,\"plateModifier\":-20,\"ranges\":[{\"OBModifier\":-10,\"from\":1,\"id\":0,\"to\":10},{\"OBModifier\":-20,\"from\":11,\"id\":0,\"to\":25},{\"OBModifier\":-30,\"from\":26,\"id\":0,\"to\":50}],\"rigidFactor\":8.5,\"rigidModifier\":-20,\"skinFactor\":4.7,\"skinModifier\":-10,\"softFactor\":8.2,\"softModifier\":-12}"));
+                .body(is("{\"armorTableLaw\":\"AL\",\"chainFactor\":10.7,\"chainModifier\":-20,\"critTable\":{\"id\":11,\"name\":\"Puncture\",\"shortName\":\"P\"},\"fumble\":1,\"id\":0,\"name\":\"Dagger\",\"plateFactor\":22.9,\"plateModifier\":-20,\"ranges\":[{\"OBModifier\":-10,\"from\":1,\"id\":0,\"to\":10},{\"OBModifier\":-20,\"from\":11,\"id\":0,\"to\":25},{\"OBModifier\":-30,\"from\":26,\"id\":0,\"to\":50}],\"rigidFactor\":8.5,\"rigidModifier\":-20,\"skinFactor\":4.7,\"skinModifier\":-10,\"softFactor\":8.2,\"softModifier\":-12,\"weaponGroup\":\"ONE_HANDED_SLASHING\"}"));
     }
 
     @Test

@@ -7,6 +7,9 @@ import org.hibernate.annotations.SortNatural;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import lombok.Getter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
@@ -14,39 +17,42 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 @XmlRootElement(name = "weapon")
 @Entity
 @Table(name="weapon")
+@ToString(exclude="log")
 public class Weapon implements Comparable<Weapon> {
   @Transient
   private final Logger log = LoggerFactory.getLogger(Weapon.class);
 
   @Id
-  private int id;
-  private String name;
-  private int fumble;
+  @XmlElement(name = "id") @Getter private int id;
+  @XmlElement(name = "name") @Getter private String name;
+  @XmlElement(name = "fumble") @Getter private int fumble;
   
   @Enumerated(EnumType.STRING)
-  private WeaponGroup weapon_group;
+  @XmlElement(name = "group") @Getter private WeaponGroup weaponGroup;
   
   @ElementCollection(fetch = FetchType.LAZY)
   @CollectionTable(name = "weapon_range", joinColumns = @JoinColumn(name = "weapon_id"))
   @SortNatural
-  private SortedSet<Range> ranges;
+  @XmlElementWrapper(name = "ranges")
+  @XmlElement(name = "range")
+  @Getter private SortedSet<Range> ranges;
 
   @Enumerated(EnumType.STRING)
-  private ArmorDBModTableLaw armorTableLaw;
+  @Getter private ArmorDBModTableLaw armorTableLaw;
 
   @ManyToOne(fetch=FetchType.LAZY)
-  private CritTable critTable;
+  @Getter private CritTable critTable;
 
-  private int skinModifier;
-  private float skinFactor;
-  private int softModifier;
-  private float softFactor;
-  private int rigidModifier;
-  private float rigidFactor;
-  private int chainModifier;
-  private float chainFactor;
-  private int plateModifier;
-  private float plateFactor;
+  @Getter private int skinModifier;
+  @Getter private float skinFactor;
+  @Getter private int softModifier;
+  @Getter private float softFactor;
+  @Getter private int rigidModifier;
+  @Getter private float rigidFactor;
+  @Getter private int chainModifier;
+  @Getter private float chainFactor;
+  @Getter private int plateModifier;
+  @Getter private float plateFactor;
 
   public Weapon() {}
 
@@ -57,80 +63,6 @@ public class Weapon implements Comparable<Weapon> {
     return id - obj.id;
   }
 
-  @XmlElement(name = "id")
-	public int getId() {
-		return id;
-	}
-
-  @XmlElement(name = "name")
-	public String getName() {
-		return name;
-	}
-
-  @XmlElement(name = "group")
-	public WeaponGroup getGroup() {
-		return weapon_group;
-	}
-
-  @XmlElement(name = "fumble")
-  public int getFumble() {
-		return fumble;
-	}
-
-  @XmlElementWrapper(name = "ranges")
-  @XmlElement(name = "range")
-	public SortedSet<Range> getRanges() {
-    log.debug(toString());
-		return ranges;
-  }
-
-  public ArmorDBModTableLaw getArmorTableLaw() {
-    return armorTableLaw;
-  }
-
-  public CritTable getCritTable() {
-    return critTable;
-  }
-
-  public int getSkinModifier() {
-    return skinModifier;
-  }
-
-  public float getSkinFactor() {
-    return skinFactor;
-  }
-
-  public int getSoftModifier() {
-    return softModifier;
-  }
-
-  public float getSoftFactor() {
-    return softFactor;
-  }
-
-  public int getRigidModifier() {
-    return rigidModifier;
-  }
-
-  public float getRigidFactor() {
-    return rigidFactor;
-  }
-
-  public int getChainModifier() {
-    return chainModifier;
-  }
-
-  public float getChainFactor() {
-    return chainFactor;
-  }
-
-  public int getPlateModifier() {
-    return plateModifier;
-  }
-
-  public float getPlateFactor() {
-    return plateFactor;
-  }
 
   public float getATFactor(int at) {
     if (at > 16) {
@@ -159,15 +91,4 @@ public class Weapon implements Comparable<Weapon> {
       return getSkinModifier();
     }
   }
-
-  @Override
-  public String toString() {
-    return "Weapon [armorTableLaw=" + armorTableLaw + ", chainFactor=" + chainFactor + ", chainModifier="
-        + chainModifier + ", critTable=" + critTable + ", fumble=" + fumble + ", id=" + id + ", name=" + name
-        + ", plateFactor=" + plateFactor + ", plateModifier=" + plateModifier + ", ranges=" + ranges + ", rigidFactor="
-        + rigidFactor + ", rigidModifier=" + rigidModifier + ", skinFactor=" + skinFactor + ", skinModifier="
-        + skinModifier + ", softFactor=" + softFactor + ", softModifier=" + softModifier + ", weapon_group="
-        + weapon_group + "]";
-  }
-
 }

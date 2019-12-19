@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 @ApplicationScoped
 public class WeaponService {
 
-    private final SortedSet<Weapon> weapons = new TreeSet<Weapon>();
     private final Logger log = LoggerFactory.getLogger(WeaponService.class);
     
     @Inject 
