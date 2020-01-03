@@ -4,11 +4,12 @@ import java.util.SortedSet;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.SortNatural;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 import lombok.Getter;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
@@ -17,10 +18,11 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 @XmlRootElement(name = "weapon")
 @Entity
 @Table(name="weapon")
-@ToString(exclude="log")
+@ToString
+@Slf4j
 public class Weapon implements Comparable<Weapon> {
-  @Transient
-  private final Logger log = LoggerFactory.getLogger(Weapon.class);
+//  @Transient
+//  private final Logger log = LoggerFactory.getLogger(Weapon.class);
 
   @Id
   @XmlElement(name = "id") @Getter private int id;

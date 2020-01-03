@@ -1,6 +1,5 @@
 package dk.hejselbak.weapon;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import io.quarkus.test.junit.QuarkusTest;
@@ -18,16 +17,10 @@ public class WeaponTest {
 
     Weapon result;
   
-    @BeforeAll
-    public void loadWeapon() {
-        result = service.getWeapon(0);
-        assertNotNull(result);
-    }
-
     @Test
     public void testLomboks() {
-        //result = service.getWeapon(0);
-        //assertNotNull(result);
+        result = service.getWeapon(0);
+        assertNotNull(result);
         assertEquals(0, result.getId());
     } 
 

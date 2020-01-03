@@ -11,8 +11,8 @@ import org.eclipse.microprofile.openapi.annotations.servers.Server;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
@@ -33,10 +33,9 @@ import javax.ws.rs.core.Response;
   ),
   servers=@Server(url="http://localhost:8080", description="Development server")
   )
+@Slf4j
 public class WeaponResource {
 
-  private final Logger log = LoggerFactory.getLogger(WeaponResource.class);
-  
   @Inject
   WeaponService service;
 
@@ -67,7 +66,7 @@ public class WeaponResource {
   @Operation(summary = "Looks up the result of a hit with the specific weapon on the specific AT.",
     description = "Returns a attack result, that can be 0, a number of hits, or a number of hits and a crit (severity and type)")
   @APIResponse(responseCode = "200", description = "The attack result", content = @Content(schema = @Schema(implementation = AttackResult.class)))
-  @APIResponse(responseCode = "400", description = "Invalid parameters, either at or modifiedRoll are not valid.")
+  @APIResponse(responseCode = "400", description = "Invalid parameters, either 'at' or 'modifiedRoll' are not valid.")
   @APIResponse(responseCode = "404", description = "Weapon not found, with the given id")
   public AttackResult hit(@PathParam("id") int id, @NotNull @QueryParam("at") Integer at, @NotNull @QueryParam("modifiedRoll") Integer roll) {
     Weapon weapon = getWeapon(id);
