@@ -11,6 +11,7 @@ import org.eclipse.microprofile.openapi.annotations.servers.Server;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -53,7 +54,7 @@ public class WeaponResource {
   @Operation(summary = "Locate a specific weapon", description = "Returns a weapon, with the given id")
   @APIResponse(responseCode = "200", description = "The weapon", content = @Content(schema = @Schema(implementation = Weapon.class)))
   @APIResponse(responseCode = "404", description = "Weapon not found, with the given id")
-  public Weapon getWeapon(@PathParam("id") int id) {
+  public Weapon getWeapon(@Parameter(description="The ID of the weapon to list.", required=true) @PathParam("id") int id) {
     Weapon result = service.getWeapon(id);
     
     if (result == null) throw new NotFoundException();
@@ -68,7 +69,9 @@ public class WeaponResource {
   @APIResponse(responseCode = "200", description = "The attack result", content = @Content(schema = @Schema(implementation = AttackResult.class)))
   @APIResponse(responseCode = "400", description = "Invalid parameters, either 'at' or 'modifiedRoll' are not valid.")
   @APIResponse(responseCode = "404", description = "Weapon not found, with the given id")
-  public AttackResult hit(@PathParam("id") int id, @NotNull @QueryParam("at") Integer at, @NotNull @QueryParam("modifiedRoll") Integer roll) {
+  public AttackResult hit(@Parameter(description="The ID of the weapon to list.", required=true) @PathParam("id") int id, 
+      @Parameter(description="The armorclass (1-20) of the target.", required=true) @NotNull @QueryParam("at") Integer at, 
+      @Parameter(description="The modified roll of the hit. If this is below the fumblerange of the chosen weapon (id) then this method will return an error (400)", required=true) @NotNull @QueryParam("modifiedRoll") Integer roll) {
     Weapon weapon = getWeapon(id);
 
     // Valicate input parameters...

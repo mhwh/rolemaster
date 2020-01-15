@@ -4,10 +4,9 @@ import java.util.SortedSet;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.SortNatural;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,12 +19,9 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 @Table(name="weapon")
 @ToString
 @Slf4j
+@NoArgsConstructor
 public class Weapon implements Comparable<Weapon> {
-//  @Transient
-//  private final Logger log = LoggerFactory.getLogger(Weapon.class);
-
-  @Id
-  @XmlElement(name = "id") @Getter private int id;
+  @XmlElement(name = "id") @Getter @Id private int id;
   @XmlElement(name = "name") @Getter private String name;
   @XmlElement(name = "fumble") @Getter private int fumble;
   
@@ -35,8 +31,7 @@ public class Weapon implements Comparable<Weapon> {
   @ElementCollection(fetch = FetchType.LAZY)
   @CollectionTable(name = "weapon_range", joinColumns = @JoinColumn(name = "weapon_id"))
   @SortNatural
-  @XmlElementWrapper(name = "ranges")
-  @XmlElement(name = "range")
+  @XmlElementWrapper(name = "ranges") @XmlElement(name = "range")
   @Getter private SortedSet<Range> ranges;
 
   @Enumerated(EnumType.STRING)
@@ -56,8 +51,6 @@ public class Weapon implements Comparable<Weapon> {
   @Getter private int plateModifier;
   @Getter private float plateFactor;
 
-  public Weapon() {}
-
   /**
   * Sorts the weapon after id, where lowest id comes first.
   */
@@ -67,6 +60,7 @@ public class Weapon implements Comparable<Weapon> {
 
 
   public float getATFactor(int at) {
+    log.debug("getATFactor(\"" + at + "\")");
     if (at > 16) {
       return getPlateFactor();
     } else if (at > 12) {
