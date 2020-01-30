@@ -28,7 +28,7 @@ import javax.ws.rs.core.Response;
 @OpenAPIDefinition(info=
   @Info(
     title="Rolemaster Weapon service",
-    version="0.1",
+    version="0.2",
     description="Service used to obtain information about weapontypes in Rolemaster. This yelds information from the ArmsLaw rulebook.",
     contact=@Contact(name="Developer", email="michael@weber-hansen.dk")
   ),
@@ -37,8 +37,7 @@ import javax.ws.rs.core.Response;
 @Slf4j
 public class WeaponResource {
 
-  @Inject
-  WeaponService service;
+  @Inject WeaponService service;
 
   public WeaponResource() {
     log.info("Starting Weapon Resource Service ...");

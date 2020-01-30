@@ -22,10 +22,10 @@ import javax.xml.bind.annotation.XmlElement;
 @ToString
 @NoArgsConstructor
 public class Range implements Comparable<Range> {
-  @Id @XmlElement(name="id") @Getter private int id;
-  @NotNull @XmlElement(name = "obModifier") @Getter private int obModifier;
-  @NotNull @XmlElement(name = "from") @Getter private int from_distance;
-  @NotNull @XmlElement(name = "to") @Getter private int to_distance;
+  @Id @XmlElement(name="id") @Getter private Integer id;
+  @NotNull @XmlElement(name = "obModifier") @Getter private Integer obModifier;
+  @NotNull @XmlElement(name = "from") @Getter private Integer from_distance;
+  @NotNull @XmlElement(name = "to") @Getter private Integer to_distance;
   
   @Override
   public int compareTo(Range obj) {
