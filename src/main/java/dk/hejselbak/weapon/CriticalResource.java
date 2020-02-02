@@ -2,7 +2,6 @@ package dk.hejselbak.weapon;
 
 import java.net.HttpURLConnection;
 import java.util.List;
-import java.util.SortedSet;
 
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.Operation;
