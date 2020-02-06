@@ -7,10 +7,9 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
-@ToString
+
 @ApplicationScoped
 @Slf4j
 public class FumbleService {
@@ -22,7 +21,9 @@ public class FumbleService {
     }
 
     public List<FumbleTable> listTables() {
-        return em.createQuery("SELECT ft from FumbleTable", FumbleTable.class).getResultList();
+        List<FumbleTable> result = em.createQuery("SELECT ft from FumbleTable ft", FumbleTable.class).getResultList();
+        log.debug("#" + result.size() + " number of fumble tables returned in the list...");
+        return result;
     }
 
     public FumbleTable getFumbleTable(Long id) {

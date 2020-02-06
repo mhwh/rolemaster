@@ -22,7 +22,7 @@ public class CriticalService {
     }
 
     public List<CritTable> listTables() {
-        return em.createQuery("SELECT ct from CritTable", CritTable.class).getResultList();
+        return em.createQuery("SELECT ct from CritTable ct", CritTable.class).getResultList();
     }
 
     public CritTable getCritTable(String shortName) {

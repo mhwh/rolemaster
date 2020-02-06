@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 @Slf4j
 @NoArgsConstructor
 public class Weapon implements Comparable<Weapon> {
-  @XmlElement(name = "id") @Getter @Id private int id;
-  @XmlElement(name = "name") @Getter private String name;
-  @XmlElement(name = "fumble") @Getter private int fumble;
+  @XmlElement @Getter @Id private int id;
+  @XmlElement @Getter private String name;
+  @XmlElement @Getter private int fumble;
   
   @Enumerated(EnumType.STRING)
   @XmlElement(name = "group") @Getter private WeaponGroup weaponGroup;
