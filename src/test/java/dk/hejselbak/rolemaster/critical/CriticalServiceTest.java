@@ -1,6 +1,6 @@
 package dk.hejselbak.rolemaster.critical;
 
-import dk.hejselbak.rolemaster.critial.CritTable;
+import dk.hejselbak.rolemaster.critial.CriticalTable;
 import dk.hejselbak.rolemaster.critial.CriticalEntry;
 import dk.hejselbak.rolemaster.critial.CriticalService;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ public class CriticalServiceTest {
 
     @Test
     public void testGetCriticalTable() {
-        CritTable ct = cs.getCritTable("S");
+        CriticalTable ct = cs.getCritTable("S");
         assertNotNull(ct);
         assertEquals(1, ct.getId());
         assertEquals("S", ct.getShort_name());

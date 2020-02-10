@@ -9,7 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import dk.hejselbak.rolemaster.critial.CritSeverity;
-import dk.hejselbak.rolemaster.critial.CritTable;
 import lombok.extern.slf4j.Slf4j;
 
 @ApplicationScoped
@@ -46,7 +45,7 @@ public class WeaponService {
                 .getSingleResult();
         int hits = 0;
         CritSeverity sev = null;
-        CritTable table = null;
+        SimpleCriticalTable table = null;
 
         if (armorTable != null) {
             if (ArmorThreshold.isHit(roll, at)) {

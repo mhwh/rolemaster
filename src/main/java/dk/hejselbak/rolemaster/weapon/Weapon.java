@@ -3,7 +3,6 @@ package dk.hejselbak.rolemaster.weapon;
 import java.util.SortedSet;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import dk.hejselbak.rolemaster.critial.CritTable;
 import org.hibernate.annotations.SortNatural;
 
 import lombok.Getter;
@@ -39,7 +38,7 @@ public class Weapon implements Comparable<Weapon> {
   @Getter private ArmorDBModTableLaw armorTableLaw;
 
   @ManyToOne(fetch=FetchType.LAZY)
-  @Getter private CritTable critTable;
+  @Getter private SimpleCriticalTable critTable;
 
   @Getter private int skinModifier;
   @Getter private float skinFactor;

@@ -44,17 +44,17 @@ public class CriticalResource {
   }
 
   @GET
-  public List<CritTable> list() {
+  public List<CriticalTable> list() {
     return service.listTables();
   }
 
   @GET
   @Path("/{shortname}")
   @Operation(summary = "Locate a specific Critical Table", description = "Returns the Critical Table, with the given short name")
-  @APIResponse(responseCode = "200", description = "The table", content = @Content(schema = @Schema(implementation = CritTable.class)))
+  @APIResponse(responseCode = "200", description = "The table", content = @Content(schema = @Schema(implementation = CriticalTable.class)))
   @APIResponse(responseCode = "404", description = "Table not found, with the given shortname")
-  public CritTable getTable(@Parameter(description="The shortname of the critical table to list.", required=true) @PathParam("shortname") String shortName) {
-    CritTable result = service.getCritTable(shortName);
+  public CriticalTable getTable(@Parameter(description="The shortname of the critical table to list.", required=true) @PathParam("shortname") String shortName) {
+    CriticalTable result = service.getCritTable(shortName);
     
     if (result == null) throw new NotFoundException();
     

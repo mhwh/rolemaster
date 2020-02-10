@@ -4,16 +4,15 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import dk.hejselbak.rolemaster.critial.CritSeverity;
-import dk.hejselbak.rolemaster.critial.CritTable;
 
 @XmlRootElement
 public class AttackResult {
 
     private final int hits;
     private CritSeverity severity;
-    private CritTable crit;
+    private SimpleCriticalTable crit;
 
-    public AttackResult(int hits, CritSeverity severity, CritTable crit) {
+    public AttackResult(int hits, CritSeverity severity, SimpleCriticalTable crit) {
         this.hits = hits;
         this.severity = severity;
         this.crit = crit;
@@ -30,7 +29,7 @@ public class AttackResult {
     }
 
     @XmlElement
-    public CritTable getCrit() {
+    public SimpleCriticalTable getCrit() {
         return crit;
     }
 

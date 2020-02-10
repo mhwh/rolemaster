@@ -21,19 +21,19 @@ public class CriticalService {
         log.info("Starting Critical Service ...");
     }
 
-    public List<CritTable> listTables() {
-        return em.createQuery("SELECT ct from CritTable ct", CritTable.class).getResultList();
+    public List<CriticalTable> listTables() {
+        return em.createQuery("SELECT ct from CriticalTable ct", CriticalTable.class).getResultList();
     }
 
-    public CritTable getCritTable(String shortName) {
-        final TypedQuery<CritTable> query = em.createQuery(
-            "SELECT ct from CritTable ct WHERE ct.short_name = :shortName", CritTable.class);
+    public CriticalTable getCritTable(String shortName) {
+        final TypedQuery<CriticalTable> query = em.createQuery(
+            "SELECT ct from CriticalTable ct WHERE ct.short_name = :shortName", CriticalTable.class);
         
         return query.setParameter("shortName", shortName).getSingleResult();
     }
 
     public CriticalEntry getCritcal(String critShortName, String sev, int roll) {
-        CritTable ct = getCritTable(critShortName);
+        CriticalTable ct = getCritTable(critShortName);
         CritSeverity cs = CritSeverity.valueOf(sev);
         Integer prev_roll = 0;
 

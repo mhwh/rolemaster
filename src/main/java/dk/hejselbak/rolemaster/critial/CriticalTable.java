@@ -19,7 +19,7 @@ import lombok.ToString;
 @XmlRootElement(name = "CritTable")
 @NoArgsConstructor
 @ToString
-public class CritTable {
+public class CriticalTable {
   @Id @Getter private long id;
   @NotNull @XmlElement(name="name") @Getter private String name;
   @NotNull @XmlElement(name="short_name") @Getter private String short_name;
