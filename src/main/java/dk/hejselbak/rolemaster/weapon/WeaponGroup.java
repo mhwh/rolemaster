@@ -1,4 +1,4 @@
-package dk.hejselbak.weapon;
+package dk.hejselbak.rolemaster.weapon;
 
 public enum WeaponGroup {
   ONE_HANDED_SLASHING,

@@ -1,4 +1,4 @@
-package dk.hejselbak.weapon;
+package dk.hejselbak.rolemaster.fumble;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

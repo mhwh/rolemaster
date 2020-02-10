@@ -1,4 +1,4 @@
-package dk.hejselbak.weapon;
+package dk.hejselbak.rolemaster.fumble;
 
 import java.net.HttpURLConnection;
 import java.util.List;

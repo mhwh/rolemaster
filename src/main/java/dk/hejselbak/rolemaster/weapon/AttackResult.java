@@ -1,7 +1,10 @@
-package dk.hejselbak.weapon;
+package dk.hejselbak.rolemaster.weapon;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import dk.hejselbak.rolemaster.critial.CritSeverity;
+import dk.hejselbak.rolemaster.critial.CritTable;
 
 @XmlRootElement
 public class AttackResult {

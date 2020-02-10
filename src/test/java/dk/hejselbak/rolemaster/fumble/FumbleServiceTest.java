@@ -1,5 +1,9 @@
-package dk.hejselbak.weapon;
+package dk.hejselbak.rolemaster.fumble;
 
+import dk.hejselbak.rolemaster.fumble.FumbleEntry;
+import dk.hejselbak.rolemaster.fumble.FumbleGroup;
+import dk.hejselbak.rolemaster.fumble.FumbleService;
+import dk.hejselbak.rolemaster.fumble.FumbleTable;
 import org.junit.jupiter.api.Test;
 
 import io.quarkus.test.junit.QuarkusTest;

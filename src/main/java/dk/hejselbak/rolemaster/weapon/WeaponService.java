@@ -1,4 +1,4 @@
-package dk.hejselbak.weapon;
+package dk.hejselbak.rolemaster.weapon;
 
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import dk.hejselbak.rolemaster.critial.CritSeverity;
+import dk.hejselbak.rolemaster.critial.CritTable;
 import lombok.extern.slf4j.Slf4j;
 
 @ApplicationScoped
@@ -43,7 +45,7 @@ public class WeaponService {
         final ArmorDBModTable armorTable = query.setParameter("law", weapon.getArmorTableLaw()).setParameter("at", at)
                 .getSingleResult();
         int hits = 0;
-        CritSeverity sev = null; 
+        CritSeverity sev = null;
         CritTable table = null;
 
         if (armorTable != null) {

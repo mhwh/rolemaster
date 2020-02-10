@@ -10,3 +10,6 @@ A implementation of the weapons, attacktables and critical tables defined in Arm
 This version also contains a 'hit' method, in order for you to test the table.
 Check out the swaggerdocumentation for more description of the service and its methods.
 
+Start the quarkus server in dev mode (mvn quarkus:dev) and go to http://localhost:8080/swagger-ui to have a testlook...
+
+

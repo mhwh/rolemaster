@@ -1,4 +1,4 @@
-package dk.hejselbak.weapon;
+package dk.hejselbak.rolemaster.fumble;
 
 import java.util.SortedSet;
 import javax.persistence.*;

@@ -1,4 +1,4 @@
-package dk.hejselbak.weapon;
+package dk.hejselbak.rolemaster.fumble;
 
 public enum FumbleGroup {
     HAND_ARMS_ONE_HANDED, 

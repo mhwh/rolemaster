@@ -1,4 +1,4 @@
-package dk.hejselbak.weapon;
+package dk.hejselbak.rolemaster.weapon;
 
 public enum ArmorDBModTableLaw {
     AL, SL, CL, RSL, RCL;

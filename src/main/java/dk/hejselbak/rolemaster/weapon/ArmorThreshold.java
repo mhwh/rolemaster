@@ -1,4 +1,6 @@
-package dk.hejselbak.weapon;
+package dk.hejselbak.rolemaster.weapon;
+
+import dk.hejselbak.rolemaster.critial.CritSeverity;
 
 public class ArmorThreshold {
     private static final int SKIN = 0;
