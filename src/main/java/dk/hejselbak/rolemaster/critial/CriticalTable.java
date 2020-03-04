@@ -30,5 +30,22 @@ public class CriticalTable {
   @XmlElementWrapper(name = "entries") @XmlElement(name = "entry")
   @Getter private SortedSet<CriticalEntry> entries;
 
+  @XmlElement(name = "numberSeverities")
+  public int getNumberSeverities() {
+    int count = 0;
+    CritSeverity lastSeverity = null;
+
+    if (entries != null && entries.size() > 0) {
+      lastSeverity = entries.first().getSeverity();
+      count++;
+      for (CriticalEntry entry : entries) {
+        if (!lastSeverity.equals(entry.getSeverity())) {
+          lastSeverity = entry.getSeverity();
+          count++;
+        }
+      }
+    }
+    return count;
+  }
 
 }
