@@ -38,9 +38,9 @@ public class CriticalEntry implements Comparable<CriticalEntry>  {
 
     @Override
     public int compareTo(CriticalEntry o) {
-        int comp = o.getSeverity().compareTo(getSeverity());
+        int comp = severity.compareTo(o.getSeverity());
         if (comp == 0) {
-            comp = max_roll - o.getMax_roll();
+            comp = o.getMax_roll() - max_roll;
         }
         return comp;
     }
