@@ -32,7 +32,7 @@ import javax.ws.rs.core.Response;
     description="Service used to obtain information about fumbles in Rolemaster. This yelds information from the ArmsLaw rulebook.",
     contact=@Contact(name="Developer", email="michael@weber-hansen.dk")
   ),
-  servers=@Server(url="http://localhost:8080", description="Development server")
+  servers=@Server(url="http://localhost:9000", description="Development server")
   )
 @Slf4j
 public class FumbleResource {
