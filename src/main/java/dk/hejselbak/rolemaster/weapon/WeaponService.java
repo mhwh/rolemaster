@@ -18,6 +18,7 @@ public class WeaponService {
     @Inject EntityManager em; 
 
     public SortedSet<Weapon> getWeapons() {
+        log.debug("[" + System.currentTimeMillis() + "] getWeapons was called on WeaponService...");
         return new TreeSet<Weapon>(em.createQuery("select w from Weapon w", Weapon.class).getResultList());
     }
 

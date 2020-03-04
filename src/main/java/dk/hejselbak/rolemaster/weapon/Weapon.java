@@ -19,7 +19,6 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 @Table(name="weapon")
 @ToString
 @Slf4j
-@NoArgsConstructor
 public class Weapon implements Comparable<Weapon> {
   @XmlElement @Getter @Id private int id;
   @XmlElement @Getter private String name;
