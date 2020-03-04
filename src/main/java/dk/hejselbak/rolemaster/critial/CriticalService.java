@@ -29,7 +29,7 @@ public class CriticalService {
         final TypedQuery<CriticalTable> query = em.createQuery(
             "SELECT ct from CriticalTable ct WHERE ct.short_name = :shortName", CriticalTable.class);
         
-        return query.setParameter("shortName", shortName).getSingleResult();
+        return query.setParameter("shortName", shortName.toUpperCase()).getSingleResult();
     }
 
     public CriticalEntry getCritcal(String critShortName, String sev, int roll) {
