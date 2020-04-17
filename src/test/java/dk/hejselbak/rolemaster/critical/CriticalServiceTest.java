@@ -33,6 +33,8 @@ public class CriticalServiceTest {
         CriticalEntry ce = cs.getCritcal("S", "A", 1);
         assertNotNull(ce);
         assert(ce.getHits() == null);
+        assertEquals(5, ce.getMax_roll());
+        assertEquals("Weak strike.", ce.getText());
     }
 
     @Test
@@ -48,6 +50,7 @@ public class CriticalServiceTest {
     @Test
     public void testGetCriticalMiddle() {
         CriticalEntry ce = cs.getCritcal("S", "C", 66);
+        System.out.println(ce.toString());
         assertNotNull(ce);
         assert(ce.getHits() != null);
         assertEquals(6, ce.getHits());
