@@ -32,16 +32,15 @@ public class CriticalService {
         return query.setParameter("shortName", shortName.toUpperCase()).getSingleResult();
     }
 
-    public CriticalEntry getCritcal(String critShortName, String sev, int roll) {
+    public CriticalEntry getCritcal(String critShortName, CritSeverity sev, int roll) {
         CriticalTable ct = getCritTable(critShortName);
-        CritSeverity cs = CritSeverity.valueOf(sev);
         Integer prev_roll = 0;
 
-        if (ct != null && cs != null) {
+        if (ct != null) {
             for (CriticalEntry ce : ct.getEntries()) {
-                if (ce.getSeverity().equals(cs) && ce.getMax_roll() >= roll && prev_roll < roll ) {
+                if (ce.getSeverity().equals(sev) && ce.getMax_roll() >= roll && prev_roll < roll ) {
                     return ce;
-                } else if (ce.getSeverity().equals(cs)) {
+                } else if (ce.getSeverity().equals(sev)) {
                     prev_roll = ce.getMax_roll();
                 }
             }

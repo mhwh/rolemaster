@@ -66,11 +66,11 @@ public class CriticalResource {
   @Operation(summary = "Locate a specific Critical Table hit", description = "Returns the Critical result, given the severity and roll")
   @APIResponse(responseCode = "200", description = "The critical entry", content = @Content(schema = @Schema(implementation = CriticalEntry.class)))
   @APIResponse(responseCode = "204", description = "No critical entry located. Most likely due to a invalid (larger than the table maximum) roll.")
-  @APIResponse(responseCode = "404", description = "Entry not found, mort likely due to an invalid roll or invalid severity")
+  @APIResponse(responseCode = "400", description = "Entry not found, most likely due to an invalid roll or invalid severity")
   public CriticalEntry hit(@Parameter(description="The shortname of the critical table to list.", required=true) @PathParam("shortname") String shortName, 
       @Parameter(description="The modified roll of the critical.", required=true) @NotNull @QueryParam("roll") Integer roll, 
       @Parameter(description="The severity of the critical (for instance 'A', 'B', ...).", required=true) @NotNull @QueryParam("severity") String sev) {
-    if (roll == null || roll < 0) {
+    if (roll == null || roll <= 0) {
       throw new WebApplicationException(
         Response.status(HttpURLConnection.HTTP_BAD_REQUEST)
           .entity("'roll' parameter must be above 0 (roll was '" + roll + "').")
@@ -78,20 +78,19 @@ public class CriticalResource {
       );
     }
 
-    boolean validSev = false;
-    for (CritSeverity cs : CritSeverity.values()) {
-      validSev = sev.equalsIgnoreCase(cs.name());
-      if (validSev) break;
-    }
-    if (!validSev) {
+    CritSeverity critSev = null;
+
+    try {
+      critSev = CritSeverity.valueOf(sev.toUpperCase());
+    } catch (IllegalArgumentException e) {
       throw new WebApplicationException(
-        Response.status(HttpURLConnection.HTTP_BAD_REQUEST)
-          .entity("'severity' parameter must be a valid critical severity. For instance 'A', or 'E'.")
-          .build()
+          Response.status(HttpURLConnection.HTTP_BAD_REQUEST)
+              .entity("Invalid critical severity ('" + sev + "'), the 'severity' parameter must be a valid critical severity. For instance 'A', or 'E'.")
+              .build()
       );
     }
 
-    CriticalEntry ce = service.getCritcal(shortName, sev.toUpperCase(), roll);
+    CriticalEntry ce = service.getCritcal(shortName, critSev, roll);
 
     if (ce == null) {
       throw new WebApplicationException(
