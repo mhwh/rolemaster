@@ -78,7 +78,7 @@ public class CriticalResource {
       );
     }
 
-    CritSeverity critSev = null;
+    CritSeverity critSev;
 
     try {
       critSev = CritSeverity.valueOf(sev.toUpperCase());
