@@ -5,6 +5,7 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
 import lombok.extern.slf4j.Slf4j;
@@ -29,15 +30,26 @@ public class FumbleService {
     public FumbleTable getFumbleTable(Long id) {
         final TypedQuery<FumbleTable> query = em.createQuery(
             "SELECT ft from FumbleTable ft WHERE ft.id = :id", FumbleTable.class);
-        
-        return query.setParameter("id", id).getSingleResult();
+        FumbleTable result;
+
+        try {
+            result = query.setParameter("id", id).getSingleResult();
+        } catch (PersistenceException e) {
+            log.debug("Exception occurred while trying to locate a fumble table with the id of " + id + "." + e.getMessage());
+            result = null;
+        } catch (IllegalStateException e) {
+            log.debug("Exception occurred while trying to locate a fumble table with the id of " + id + "." + e.getMessage());
+            result = null;
+        }
+
+        return result;
     }
 
     public FumbleEntry getFumble(Long fumbleTable_id, String group, int roll) {
         Integer prev_roll = -1;
 
         FumbleTable ft = getFumbleTable(fumbleTable_id);
-        FumbleGroup fg = FumbleGroup.valueOf(group);
+        FumbleCategory fg = FumbleCategory.valueOf(group);
         FumbleEntry backup = null;
 
         if (ft != null && fg != null) {
