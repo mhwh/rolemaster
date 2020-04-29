@@ -5,36 +5,36 @@ insert into critical_table(id, name, short_name) values(4, 'Brawling', 'B');
 
 insert into FumbleTable(id, name) values(1, 'Weapon fumble table');
 
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(1, 'HAND_ARMS_ONE_HANDED', 25, 1, 'Lose you grip and the oppotunity to get in an open blow. Maybe you will improve');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(1, 'HAND_ARMS_ONE_HANDED', 25, 1, 'Lose you grip and the opportunity to get in an open blow. Maybe you will improve');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(2, 'HAND_ARMS_ONE_HANDED', 30, 1, 'Drop you weapon. It will take you 1 round to draw a new one, or 2 rounds to recover old one.');
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(3, 'HAND_ARMS_ONE_HANDED', 40, 1, 'You slip with grace and lose the oppotunity to get in the vital blow.');
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(4, 'HAND_ARMS_ONE_HANDED', 50, 1, 'Bad follow through. You lose you oppotunity and give yourself 1 hit. Real weak.');
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(5, 'HAND_ARMS_ONE_HANDED', 60, 1, 'You slip without grace and lose 2 rounds worth of oppotunities. Good luck Pal.');
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(6, 'HAND_ARMS_ONE_HANDED', 70, 1, 'Lose your grip and juggleyour weapon for 2 rounds. You can still parry.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(3, 'HAND_ARMS_ONE_HANDED', 40, 1, 'You slip with grace and lose the opportunity to get in the vital blow.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(4, 'HAND_ARMS_ONE_HANDED', 50, 1, 'Bad follow through. You lose you opportunity and give yourself 1 hit. Real weak.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(5, 'HAND_ARMS_ONE_HANDED', 60, 1, 'You slip without grace and lose 2 rounds worth of opportunities. Good luck Pal.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(6, 'HAND_ARMS_ONE_HANDED', 70, 1, 'Lose your grip and juggle your weapon for 2 rounds. You can still parry.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(7, 'HAND_ARMS_ONE_HANDED', 80, 1, 'Lose your grip and juggle your weapon for 2 rounds. Unfortunately, you cannot parry.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(8, 'HAND_ARMS_ONE_HANDED', 85, 1, 'You lose your ''wind'' and realise that you should relax and not swing for 2 rounds.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(9, 'HAND_ARMS_ONE_HANDED', 90, 1, 'Foe''s smooth moves leave you stunned for 2 rounds. Hopefully, you will learn.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(10, 'HAND_ARMS_ONE_HANDED', 95, 1, 'You stumble. The classless display leaves you stunned for 3 rounds. You might still survive.');
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(11, 'HAND_ARMS_ONE_HANDED', 99, 1, 'Swallow toungue in the excitement. You are stunned and unable to parry for 3 rounds.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(11, 'HAND_ARMS_ONE_HANDED', 99, 1, 'Swallow tongue in the excitement. You are stunned and unable to parry for 3 rounds.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(12, 'HAND_ARMS_ONE_HANDED', 100, 1, 'Bad taste adn poor execution. You attempt to maim yourself. Roll on the ''D'' critical table (slashes).');
 
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(13, 'HAND_ARMS_TWO_HANDED', 25, 1, 'Lose your grip. You lose the oppotunity to take an open swing.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(13, 'HAND_ARMS_TWO_HANDED', 25, 1, 'Lose your grip. You lose the opportunity to take an open swing.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(14, 'HAND_ARMS_TWO_HANDED', 30, 1, 'Drop you weapon. It will take you 2 rounds to draw a new one, or 4 rounds to recover old one.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(15, 'HAND_ARMS_TWO_HANDED', 40, 1, 'You slip into fog of mind. You lose 1 round in order to collect your thoughts.');
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(16, 'HAND_ARMS_TWO_HANDED', 50, 1, 'Stumbl over an unseen imaginary deceased turtle. You lose 2 rounds of offensive action but an parry.');
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(17, 'HAND_ARMS_TWO_HANDED', 60, 1, 'Bad move. You lose 2 rounds of open swings. Fortunately, ou can still parry.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(16, 'HAND_ARMS_TWO_HANDED', 50, 1, 'Stumble over an unseen imaginary deceased turtle. You lose 2 rounds of offensive action but can parry.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(17, 'HAND_ARMS_TWO_HANDED', 60, 1, 'Bad move. You lose 2 rounds of open swings. Fortunately, you can still parry.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(18, 'HAND_ARMS_TWO_HANDED', 70, 1, 'Lose your grip and juggle your weapon for 2 rounds. You can still parry.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(19, 'HAND_ARMS_TWO_HANDED', 80, 1, 'Very bad move. You are stunned and unable to parry for 2 rounds. Not good.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(20, 'HAND_ARMS_TWO_HANDED', 85, 1, 'Lose your grip and juggle your weapon for 3 rounds. You can still parry.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(21, 'HAND_ARMS_TWO_HANDED', 90, 1, 'Incredibly bad move. You are stunned and unable to parry for 3 rounds.');
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(22, 'HAND_ARMS_TWO_HANDED', 95, 1, 'You stumble and nearly fall down in an apparent attempt to commit suicide. You are stuned for 4 rounds.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(22, 'HAND_ARMS_TWO_HANDED', 95, 1, 'You stumble and nearly fall down in an apparent attempt to commit suicide. You are stunned for 4 rounds.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(23, 'HAND_ARMS_TWO_HANDED', 99, 1, 'You trip and fall. It will take 4 rounds to recover. You are unable to parry for 3 rounds.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(24, 'HAND_ARMS_TWO_HANDED', 100, 1, 'Worst move ever seen in ages. 50% chance you are out 2 days with a pulled groin. 50% chance opponent is out 3 rounds laughing.');
 
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(25, 'SPEAR_AND_POLE_ARMS', 25, 1, 'Lose your grip. You lose the oppotunity to take an open swing.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(25, 'SPEAR_AND_POLE_ARMS', 25, 1, 'Lose your grip. You lose the opportunity to take an open swing.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(26, 'SPEAR_AND_POLE_ARMS', 30, 1, 'Fumble you delivery. You lose the option to attack but you can still parry.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(27, 'SPEAR_AND_POLE_ARMS', 40, 1, 'You slip and are stunned for 1 round. All right, you just look clumsy. Try again.');
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(28, 'SPEAR_AND_POLE_ARMS', 50, 1, 'Lose your grip and juggle eapon for 2 rounds. You can still parry. Your next swing is at -10.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(28, 'SPEAR_AND_POLE_ARMS', 50, 1, 'Lose your grip and juggle weapon for 2 rounds. You can still parry. Your next swing is at -10.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(29, 'SPEAR_AND_POLE_ARMS', 60, 1, 'You slip and almost fall. You are stunned and unable to parry for 2 rounds.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(30, 'SPEAR_AND_POLE_ARMS', 70, 1, 'Lose your grip and juggle weapon for 3 rounds. Your next swing is at -10.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(31, 'SPEAR_AND_POLE_ARMS', 80, 1, 'Fumble your follow-through. You lose 3 rounds. You are stunned for 2 rounds.');
@@ -44,7 +44,7 @@ insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text)
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(35, 'SPEAR_AND_POLE_ARMS', 99, 1, 'You injure your shoulder. You are stunned and unable to parry for 3 rounds and fight at -25.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(36, 'SPEAR_AND_POLE_ARMS', 100, 1, 'You break your weapon and are stunned and unable to parry for 6 rounds.');
 
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(37, 'MOUNTED_ARMS', 25, 1, 'Lose your grip. You lose the oppotunity to take an open strike.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(37, 'MOUNTED_ARMS', 25, 1, 'Lose your grip. You lose the opportunity to take an open strike.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(38, 'MOUNTED_ARMS', 30, 1, 'Fumble you delivery. You lose 2 rounds but can still parry.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(39, 'MOUNTED_ARMS', 40, 1, 'You slip and lose your saddle position. You lose 2 rounds but can still parry.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(40, 'MOUNTED_ARMS', 50, 1, 'Your mount rears and you are quite stunned for 2 rounds during the recovery.');
@@ -53,7 +53,7 @@ insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text)
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(43, 'MOUNTED_ARMS', 80, 1, 'You break your weapon and lose 2 rounds while drawing a new one.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(44, 'MOUNTED_ARMS', 85, 1, 'You drop your weapon in one of your lighter moments. Lose 2 rounds drawing a new one.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(45, 'MOUNTED_ARMS', 90, 1, 'You break your weapon and lose 2 rounds drawing a new one. You take 10 hits.');
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(46, 'MOUNTED_ARMS', 95, 1, 'Your seating is improper and you find yrself stunned and unable to parry for 3 rounds.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(46, 'MOUNTED_ARMS', 95, 1, 'Your seating is improper and you find yourself stunned and unable to parry for 3 rounds.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(47, 'MOUNTED_ARMS', 99, 1, 'Your body takes the impact. You take 20 hits. Stunned and unable to parry for 6 rounds.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(48, 'MOUNTED_ARMS', 100, 1, 'You fall off of your mount. Role on the ''D'' crush critical strike table.');
 
@@ -72,7 +72,7 @@ insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text)
 
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(61, 'BOWS', 25, 1, 'Lose you grip. You elect not to attack. Good choice.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(62, 'BOWS', 30, 1, 'One''s ten thumbs just cannot handle loading. You lose the rounds.');
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(63, 'BOWS', 40, 1, 'You fumble your ammunition. You lose 2 rounds trying to reover. Real weak, kid.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(63, 'BOWS', 40, 1, 'You fumble your ammunition. You lose 2 rounds trying to recover. Real weak, kid.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(64, 'BOWS', 50, 1, 'Break arrow and lose your cool. You find yourself out of 2 rounds of action.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(65, 'BOWS', 60, 1, 'Drop your arrow. You lose 2 rounds reloading. Try hand arms next time.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(66, 'BOWS', 70, 1, 'Drop your bow. You lose 2 rounds while retrieving and reloading it.');
