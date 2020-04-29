@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.Getter;
@@ -14,13 +15,12 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Embeddable
-@XmlRootElement
 @NoArgsConstructor
 @Table
 @ToString
 public class FumbleEntry implements Comparable<FumbleEntry> {
     @Id @Getter private Long id; 
-    @XmlElement @Enumerated(EnumType.STRING) @Column(name = "fumble_group") @Getter private FumbleGroup group;
+    @XmlElement @Enumerated(EnumType.STRING) @Column(name = "fumble_group") @Getter private FumbleCategory group;
     @XmlElement @Getter private Integer max_roll;
     @XmlElement @Getter @Column(name="fumble_text") private String text;
 

@@ -53,7 +53,7 @@ public class FumbleResource {
   @Operation(summary = "Locate a specific fumble Table", description = "Returns the fumble Table, with the given id.")
   @APIResponse(responseCode = "200", description = "The table", content = @Content(schema = @Schema(implementation = FumbleTable.class)))
   @APIResponse(responseCode = "404", description = "Table not found, with the given id.")
-  public FumbleTable getTable(@Parameter(description="The id of the fumbe table to list.", required=true) @PathParam("id") Long id) {
+  public FumbleTable getTable(@Parameter(description="The id of the fumble table to list.", required=true) @PathParam("id") Long id) {
     FumbleTable result = service.getFumbleTable(id);
     
     if (result == null) throw new NotFoundException();
@@ -78,7 +78,7 @@ public class FumbleResource {
     }
 
     boolean validSev = false;
-    for (FumbleGroup fg : FumbleGroup.values()) {
+    for (FumbleCategory fg : FumbleCategory.values()) {
       validSev = fg.name().equalsIgnoreCase(type);
       if (validSev) break;
     }
@@ -103,5 +103,9 @@ public class FumbleResource {
     return fe; 
   }
 
-  
+  @GET
+  @Path("/categories")
+  public FumbleCategory[] getCategories() {
+    return FumbleCategory.values();
+  }
 }
