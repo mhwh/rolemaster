@@ -27,17 +27,21 @@ public class WeaponService {
     }
 
     /**
-     * Roll the attack, check for fumble/failure, modify by OB/DB and other factors
-     * as usual. This is the IAV. Cross-index the attacks Table Type (Arms Law = AL)
-     * with the targets armour type in the Armour DB mod area, subtract this from
-     * the IAV. Then add the Weapon OB mod for the armour type. This is the FAN. If
+     * Cross-index the attacks Table Type (Arms Law = AL)with the targets armour type
+     * in the Armour DB mod area, subtract this from the IAV.
+     * Then add the Weapon OB mod for the armour type. This is the FAN. If
      * the FAN is greater than the To Hit Threshold the attack does damage.
      * Criticals result if it has passed the appropriate threshold. To determine how
      * many hits occured divide (FAN-THT) by the Basic Hit Factor (The number in
      * brackets on the attack statistics area) DAMAGE =
      * ((OB-DB-ArmourMod+WeaponMod)-THT)/BHF
-     * 
-     * This method should return hits (0 - ?), potential crit and severity.
+     *
+     * @param weapon The weapon being used for this attack
+     * @param at The AT of the target
+     * @param roll The IAV. Roll the attack, check for fumble/failure, modify by OB/DB and other factors as usual. This is the IAV.
+     *
+     * This method returns a AttackResult instance.
+     * @see AttackResult
      */
     public AttackResult hit(final Weapon weapon, final int at, final int roll) {
         final TypedQuery<ArmorDBModTable> query = em.createQuery(
@@ -47,7 +51,7 @@ public class WeaponService {
         int hits = 0;
         CritSeverity sev = null;
         SimpleCriticalTable table = null;
-
+        //log.info("AttackResult()")
         if (armorTable != null) {
             if (ArmorThreshold.isHit(roll, at)) {
                 hits = (int) ((roll + weapon.getATModifier(at) - armorTable.getMod() - ArmorThreshold.getTHT(roll, at)) / weapon.getATFactor(at));
