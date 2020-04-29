@@ -73,7 +73,7 @@ public class WeaponResource {
       @Parameter(description="The modified roll of the hit. If this is below the fumblerange of the chosen weapon (id) then this method will return an error (400)", required=true) @NotNull @QueryParam("modifiedRoll") Integer roll) {
     Weapon weapon = getWeapon(id);
 
-    // Valicate input parameters...
+    // Validate input parameters...
     if (at == null || at < 1 || at > 20) {
       throw new WebApplicationException(
         Response.status(HttpURLConnection.HTTP_BAD_REQUEST)
@@ -81,10 +81,10 @@ public class WeaponResource {
           .build()
       );
     }
-    if (roll == null || roll <= weapon.getFumble()) {
+    if (roll == null || roll <= 0) {
       throw new WebApplicationException(
         Response.status(HttpURLConnection.HTTP_BAD_REQUEST)
-          .entity("'modifiedRoll' parameter is mandatory. It must be above the fumble of the chosen weapon (" + weapon.getName() + " fumble is " + weapon.getFumble() + ").")
+          .entity("'modifiedRoll' parameter is mandatory, and expected to be larger than 0.")
           .build()
       );
     }
