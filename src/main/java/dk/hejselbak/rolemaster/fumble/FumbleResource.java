@@ -3,23 +3,30 @@ package dk.hejselbak.rolemaster.fumble;
 import java.net.HttpURLConnection;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.validation.constraints.NotNull;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.info.Contact;
 import org.eclipse.microprofile.openapi.annotations.info.Info;
-import org.eclipse.microprofile.openapi.annotations.servers.Server;
-import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+import org.eclipse.microprofile.openapi.annotations.servers.Server;
 
-import lombok.extern.slf4j.Slf4j;
-
-import javax.inject.Inject;
-import javax.validation.constraints.NotNull;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 
 @Path("/fumble")
@@ -67,7 +74,7 @@ public class FumbleResource {
   @APIResponse(responseCode = "200", description = "The fumble entry", content = @Content(schema = @Schema(implementation = FumbleEntry.class)))
   @APIResponse(responseCode = "204", description = "No fumble entry located. Most likely due to a type.")
   public FumbleEntry hit(@Parameter(description="The id of the fumble table to use.", required=true) @PathParam("id") Long id, 
-      @Parameter(description="The modified roll of the fumble.", required=true) @NotNull @QueryParam("roll") Integer roll, 
+      @Parameter(description="The modified roll of the fumble.", required=true) @NotNull @QueryParam("roll") Integer roll,
       @Parameter(description="The type of the fumble (for instance 'HAND_ARMS_ONE_HANDED', 'SPEAR_AND_POLE_ARMS', ...).", required=true) @NotNull @QueryParam("type") String type) {
     if (roll == null || roll < 0) {
       throw new WebApplicationException(

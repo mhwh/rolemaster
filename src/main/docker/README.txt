@@ -6,5 +6,5 @@ docker run --ulimit memlock=-1:-1 -it --rm=true --memory-swappiness=0 --network=
 
 #### Build the docker image of this application
 #### And start it on the same network as above...
-docker run -i --rm --network="nrolemaster" --name rolemaster -p 9000:9000 quarkus/rolemaster-jvm
+docker run -i --rm --network="nrolemaster" --name rolemaster -p 9000:9000 quarkus/rolemaster
 
