@@ -1,0 +1,681 @@
+20
+3CP
+B
+A
+A
+A
+AK
+144 3
+113 2
+76 1
+39 0
+19
+4CP
+148 4BP
+145 4AP
+140 4AK
+139 4
+124 3
+99 2
+74 1
+49 0
+18
+4EP
+D
+C
+144 4BP
+139 4AP
+S
+P
+S
+P
+S
+P
+S
+P
+K
+129 4
+127 3
+104 2
+81 1
+59 0
+17
+6EP
+6EP
+6DP
+145 6CP
+139 6BP
+S
+P
+S
+5BP
+S
+P
+AS
+P
+S
+P
+S
+P
+S
+P
+S
+P
+S
+4AP
+K
+119 4
+107 3
+92 2
+78 1
+64 0
+16
+7EP
+D
+D
+C
+143 B
+138 A
+136 6AP
+132 S
+P
+K
+129 6
+122 5
+108 4
+95 3
+81 2
+67 1
+54 0
+15
+7EP
+D
+D
+C
+141 B
+137 6BP
+134 A
+127 S
+P
+K
+124 5
+111 4
+98 3
+85 2
+72 1
+59 0
+14
+10EP
+D
+141 9CP
+138 B
+132 8BS
+AP
+S
+P
+S
+P
+S
+P
+7AS
+P
+S
+P
+K
+119 7
+115 6
+107 5
+98 4
+89 3
+81 2
+72 1
+64 0
+13
+0EP
+E
+E
+D
+141 9CP
+134 S
+8BP
+S
+P
+S
+P
+S
+P
+S
+7BP
+S
+AP
+S
+P
+S
+P
+S
+6AP
+S
+P
+S
+P
+S
+P
+K
+109 5
+101 4
+93 3
+85 2
+77 1
+69 0
+12
+6EP
+147 6DP
+144 6CP
+136 5CP
+B
+126 A
+123 4AP
+117 S
+P
+K
+114 4
+109 3
+96 2
+82 1
+69 0
+11
+8EP
+146 D
+142 C
+7CP
+132 6BP
+123 5BP
+5BP
+AP
+118 5AS
+P
+S
+P
+114 4AS
+P
+S
+P
+K
+109 4
+105 3
+96 2
+87 1
+79 0
+10
+12EP
+146 D
+143 11DP
+140 C
+137 10CP
+131 9CP
+128 B
+124 8BP
+S
+P
+S
+P
+S
+7BP
+AS
+P
+S
+P
+S
+6AP
+S
+P
+S
+P
+S
+P
+5AK
+104 5
+99 4
+93 3
+86 2
+80 1
+74 0
+9
+12EP
+144 11EP
+DP
+138 10DP
+135 10CP
+132 9CP
+127 9CS
+8CP
+S
+P
+S
+P
+BS
+7BP
+S
+P
+S
+P
+S
+6BP
+S
+P
+S
+P
+S
+5AP
+S
+P
+S
+P
+S
+4AP
+S
+P
+S
+P
+S
+3AP
+K
+94 3
+90 2
+84 1
+79 0
+8
+8EP
+143 D
+136 C
+134 7CP
+122 BS
+P
+S
+6BP
+S
+P
+S
+P
+S
+P
+S
+P
+S
+P
+AS
+P
+S
+P
+5AS
+P
+S
+P
+S
+P
+S
+P
+K
+S
+94 5
+89 4
+74 3
+59 0
+7
+8EP
+142 8DP
+135 7DP
+132 7CP
+126 7CS
+P
+S
+P
+S
+6CP
+S
+P
+S
+BP
+S
+P
+S
+P
+S
+P
+S
+P
+S
+5BP
+S
+P
+S
+AP
+S
+P
+S
+P
+S
+P
+S
+P
+S
+P
+4AS
+P
+K
+89 4
+78 3
+64 0
+6
+13EP
+142 6EP
+D
+135 11DP
+131 CS
+P
+S
+P
+10CS
+P
+S
+P
+S
+P
+S
+9CP
+S
+P
+9BS
+P
+S
+P
+8BS
+P
+S
+P
+S
+P
+S
+P
+7BS
+P
+S
+P
+7AS
+P
+S
+6AP
+S
+P
+S
+P
+S
+P
+5AS
+P
+S
+P
+S
+P
+K
+84 5
+83 4
+76 3
+69 0
+5
+16EP
+144 15EP
+P
+S
+DP
+ES
+14DP
+S
+P
+S
+P
+S
+13DP
+S
+P
+S
+P
+12DS
+12CP
+S
+P
+S
+P
+11CS
+P
+S
+P
+S
+10CP
+S
+P
+BS
+P
+9BS
+P
+S
+P
+S
+P
+8BS
+P
+S
+P
+S
+7BP
+S
+P
+S
+AP
+S
+6AP
+S
+P
+S
+P
+5AS
+P
+S
+P
+S
+P
+4AS
+P
+S
+P
+K
+79 3
+74 0
+4
+10EP
+142 9DP
+135 8DP
+C
+128 7CP
+124 B
+S
+P
+S
+6BP
+S
+P
+S
+6AP
+S
+P
+5AS
+P
+S
+P
+S
+P
+S
+4AP
+K
+104 4
+98 3
+91 2
+84 0
+3
+13EP
+143 12EP
+139 12DP
+136 11DP
+132 11DB
+P
+S
+10CP
+S
+P
+S
+P
+S
+P
+9CS
+P
+BS
+P
+S
+P
+8BS
+P
+S
+P
+S
+8AP
+S
+7AP
+S
+P
+S
+P
+S
+P
+6AS
+P
+K
+99 6
+95 5
+89 0
+2
+16EP
+142 15EP
+137 S
+P
+14ES
+P
+S
+14DP
+S
+P
+S
+13DP
+S
+P
+S
+P
+S
+P
+12DS
+P
+S
+P
+S
+P
+S
+11CP
+S
+P
+S
+P
+S
+P
+10BS
+P
+S
+P
+S
+P
+S
+9BP
+S
+P
+S
+9AP
+S
+P
+8AS
+P
+S
+P
+S
+P
+S
+7AP
+K
+84 7
+79 0
+1
+18ES
+P
+S
+P
+S
+P
+17ES
+P
+S
+P
+S
+16EP
+S
+P
+S
+P
+15DS
+P
+S
+P
+S
+14DP
+S
+P
+S
+P
+13CS
+P
+S
+P
+S
+12CP
+S
+P
+S
+P
+11BS
+P
+S
+P
+S
+10BP
+S
+P
+S
+AP
+9AS
+P
+S
+P
+S
+8AP
+S
+P
+K
+S
+94 7
+89 0
