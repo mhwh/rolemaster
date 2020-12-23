@@ -6,9 +6,7 @@ import java.util.TreeSet;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 
-import dk.hejselbak.rolemaster.critial.CritSeverity;
 import lombok.extern.slf4j.Slf4j;
 
 @ApplicationScoped
@@ -44,28 +42,7 @@ public class WeaponService {
      * @see AttackResult
      */
     public AttackResult hit(final Weapon weapon, final int at, final int roll) {
-        final TypedQuery<ArmorDBModTable> query = em.createQuery(
-                "SELECT a FROM ArmorDBModTable a WHERE a.law = :law AND a.at = :at", ArmorDBModTable.class);
-        final ArmorDBModTable armorTable = query.setParameter("law", weapon.getArmorTableLaw()).setParameter("at", at)
-                .getSingleResult();
-        int hits = 0;
-        CritSeverity sev = null;
-        SimpleCriticalTable table = null;
-        //log.info("AttackResult()")
-        if (armorTable != null) {
-            if (ArmorThreshold.isHit(roll, at)) {
-                hits = (int) ((roll + weapon.getATModifier(at) - armorTable.getMod() - ArmorThreshold.getTHT(roll, at)) / weapon.getATFactor(at));
-                if (ArmorThreshold.isCrit(roll, at)) {
-                    sev = ArmorThreshold.getCritSeverity(roll, at); 
-                    table = weapon.getCritTable();
-                    if (log.isDebugEnabled()) {
-                        log.debug("IAV:" + roll + ", ArmorMod:" + armorTable.getMod() + ", WeaponMod:" + weapon.getATModifier(at) + ", THT:" + ArmorThreshold.getTHT(roll, at) + ", BHF:" + weapon.getATFactor(at) + " = " + new AttackResult(hits, sev, table).toString());
-                    }
-                }
-            } 
-        } 
-        
-        return new AttackResult(hits, sev, table);
+        return weapon.hit(at, roll);
     }
 
 }

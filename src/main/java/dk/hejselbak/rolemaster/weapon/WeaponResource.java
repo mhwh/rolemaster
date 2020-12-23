@@ -103,7 +103,7 @@ public class WeaponResource {
     return service.hit(weapon, at, roll);
   }
 
-  @Gauge(name = "highestAttackSoFar", unit = MetricUnits.NONE, description = "The highest attackroll so far.")
+  @Gauge(name = "highestAttackSoFar", unit = MetricUnits.NONE, description = "The highest attack roll so far.")
   public Integer highestAttackSoFar() {
     return maxRoll;
   }

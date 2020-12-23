@@ -1,12 +1,13 @@
 package dk.hejselbak.rolemaster.weapon;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.SortedSet;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.SortNatural;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
@@ -14,7 +15,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 
-@XmlRootElement(name = "weapon")
+@XmlRootElement(name = "Weapon")
 @Entity
 @Table(name="weapon")
 @ToString
@@ -33,22 +34,9 @@ public class Weapon implements Comparable<Weapon> {
   @XmlElementWrapper(name = "ranges") @XmlElement(name = "range")
   @Getter private SortedSet<Range> ranges;
 
-  @Enumerated(EnumType.STRING)
-  @Getter private ArmorDBModTableLaw armorTableLaw;
-
-  @ManyToOne(fetch=FetchType.LAZY)
-  @Getter private SimpleCriticalTable critTable;
-
-  @Getter private int skinModifier;
-  @Getter private float skinFactor;
-  @Getter private int softModifier;
-  @Getter private float softFactor;
-  @Getter private int rigidModifier;
-  @Getter private float rigidFactor;
-  @Getter private int chainModifier;
-  @Getter private float chainFactor;
-  @Getter private int plateModifier;
-  @Getter private float plateFactor;
+  @OneToMany(fetch = FetchType.LAZY, targetEntity=AttackTableEntry.class, mappedBy="weapon")
+  @OrderBy("at DESC, roll ASC") // at 20, roll 150 and down through the rolls and at types...
+  @XmlElement @Getter private List<AttackTableEntry> attackTable;
 
   /**
   * Sorts the weapon after id, where lowest id comes first.
@@ -57,33 +45,24 @@ public class Weapon implements Comparable<Weapon> {
     return id - obj.id;
   }
 
+  /**
+   * Will lookup on the attack table, and return the result.
+   *
+   * @param at The AT to look up
+   * @param roll The roll to look up. If this is > 150, it is set to 150, as the table only goes to 150.
+   * @return Will always return a AttackResult, but it can be AttackResult.NO_HIT.
+   */
+  public AttackResult hit(int at, int roll) {
+    AttackResult attackResult = AttackResult.NO_HIT;
 
-  public float getATFactor(int at) {
-    log.debug("getATFactor(\"" + at + "\")");
-    if (at > 16) {
-      return getPlateFactor();
-    } else if (at > 12) {
-      return getChainFactor();
-    } else if (at > 8) {
-      return getRigidFactor();
-    } else if (at > 4) {
-      return getSoftFactor();
-    } else {
-      return getSkinFactor();
-    }
-  }
+    final int tableRoll = (roll > 150 ? 150 : roll);
 
-  public int getATModifier(int at) {
-    if (at > 16) {
-      return getPlateModifier();
-    } else if (at > 12) {
-      return getChainModifier();
-    } else if (at > 8) {
-      return getRigidModifier();
-    } else if (at > 4) {
-      return getSoftModifier();
-    } else {
-      return getSkinModifier();
+    Optional<AttackTableEntry> result = attackTable.stream().filter(entry -> entry.getAt() == at && tableRoll <= entry.getRoll()).findFirst();
+    if (result.isPresent()) {
+      AttackTableEntry ate = result.get();
+      attackResult = new AttackResult(ate.getHits(), ate.getCritSeverity(), ate.getCriticalTable());
     }
+
+    return attackResult;
   }
 }

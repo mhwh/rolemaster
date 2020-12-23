@@ -60,7 +60,7 @@ public class FumbleResource {
   @Operation(summary = "Locate a specific fumble Table", description = "Returns the fumble Table, with the given id.")
   @APIResponse(responseCode = "200", description = "The table", content = @Content(schema = @Schema(implementation = FumbleTable.class)))
   @APIResponse(responseCode = "404", description = "Table not found, with the given id.")
-  public FumbleTable getTable(@Parameter(description="The id of the fumble table to list.", required=true) @PathParam("id") Long id) {
+  public FumbleTable getTable(@Parameter(description = "The id of the fumble table to list.", required = true) @PathParam("id") Long id) {
     FumbleTable result = service.getFumbleTable(id);
     
     if (result == null) throw new NotFoundException();
@@ -69,13 +69,13 @@ public class FumbleResource {
   }
 
   @GET
-  @Path("/{id}/fumble")
-  @Operation(summary = "Locate a specific fumble Table hit", description = "Returns the fumble result, given the type and roll")
+  @Path("/{id}/{category}")
+  @Operation(summary = "Locate a specific fumble Table hit", description = "Returns the fumble result, given the category and roll. To list the categories, use /categories")
   @APIResponse(responseCode = "200", description = "The fumble entry", content = @Content(schema = @Schema(implementation = FumbleEntry.class)))
   @APIResponse(responseCode = "204", description = "No fumble entry located. Most likely due to a type.")
-  public FumbleEntry hit(@Parameter(description="The id of the fumble table to use.", required=true) @PathParam("id") Long id, 
-      @Parameter(description="The modified roll of the fumble.", required=true) @NotNull @QueryParam("roll") Integer roll,
-      @Parameter(description="The type of the fumble (for instance 'HAND_ARMS_ONE_HANDED', 'SPEAR_AND_POLE_ARMS', ...).", required=true) @NotNull @QueryParam("type") String type) {
+  public FumbleEntry hit(@Parameter(description = "The id of the fumble table to use.", required = true) @PathParam("id") Long id,
+      @Parameter(description = "The modified roll of the fumble.", required = true) @NotNull @QueryParam("roll") Integer roll,
+      @Parameter(description = "The type of the fumble (for instance 'HAND_ARMS_ONE_HANDED', 'SPEAR_AND_POLE_ARMS', ...).", required = true) @NotNull @PathParam("category") String type) {
     if (roll == null || roll < 0) {
       throw new WebApplicationException(
         Response.status(HttpURLConnection.HTTP_BAD_REQUEST)
@@ -92,7 +92,7 @@ public class FumbleResource {
     if (!validSev) {
       throw new WebApplicationException(
         Response.status(HttpURLConnection.HTTP_BAD_REQUEST)
-          .entity("'type' parameter must be a valid fumble type. For instance 'HAND_ARMS_ONE_HANDED', 'SPEAR_AND_POLE_ARMS', ... .")
+          .entity("'category' path-parameter must be a valid fumble type. Valid categories can be obtained from /categories")
           .build()
       );
     }
