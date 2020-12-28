@@ -25,7 +25,7 @@ public class AttackTableGenerator {
         // Every weapon gets 2000 rows...
         AttackTableGenerator atg = new AttackTableGenerator(w, w * 2000);
 
-        atg.run("src/main/java/dk/hejselbak/rolemaster/" + w + ".txt");
+        atg.run("src/main/java/dk/hejselbak/rolemaster/util/" + w + ".txt");
     }
 
     public AttackTableGenerator(int weapon_id, int attackTable_seq) {
