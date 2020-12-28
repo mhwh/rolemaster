@@ -17,6 +17,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import lombok.extern.slf4j.Slf4j;
+import org.eclipse.microprofile.metrics.MetricUnits;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.info.Contact;
@@ -51,6 +53,7 @@ public class FumbleResource {
   }
 
   @GET
+  @Timed(name = "fumbleTimes", description = "A measure of how long it takes to retrieve all fumble tables", unit = MetricUnits.MILLISECONDS)
   public List<FumbleTable> list() {
     return service.listTables();
   }
@@ -60,6 +63,7 @@ public class FumbleResource {
   @Operation(summary = "Locate a specific fumble Table", description = "Returns the fumble Table, with the given id.")
   @APIResponse(responseCode = "200", description = "The table", content = @Content(schema = @Schema(implementation = FumbleTable.class)))
   @APIResponse(responseCode = "404", description = "Table not found, with the given id.")
+  @Timed(name = "fumbleTableTimes", description = "A measure of how long it takes to retrieve a specific fumble table.", unit = MetricUnits.MILLISECONDS)
   public FumbleTable getTable(@Parameter(description = "The id of the fumble table to list.", required = true) @PathParam("id") Long id) {
     FumbleTable result = service.getFumbleTable(id);
     
@@ -73,6 +77,7 @@ public class FumbleResource {
   @Operation(summary = "Locate a specific fumble Table hit", description = "Returns the fumble result, given the category and roll. To list the categories, use /categories")
   @APIResponse(responseCode = "200", description = "The fumble entry", content = @Content(schema = @Schema(implementation = FumbleEntry.class)))
   @APIResponse(responseCode = "204", description = "No fumble entry located. Most likely due to a type.")
+  @Timed(name = "fumbleEntryTimes", description = "A measure of how long it takes to retrieve a specific fumble entry.)", unit = MetricUnits.MILLISECONDS)
   public FumbleEntry hit(@Parameter(description = "The id of the fumble table to use.", required = true) @PathParam("id") Long id,
       @Parameter(description = "The modified roll of the fumble.", required = true) @NotNull @QueryParam("roll") Integer roll,
       @Parameter(description = "The type of the fumble (for instance 'HAND_ARMS_ONE_HANDED', 'SPEAR_AND_POLE_ARMS', ...).", required = true) @NotNull @PathParam("category") String type) {

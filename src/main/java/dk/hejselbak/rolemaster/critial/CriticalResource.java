@@ -3,6 +3,8 @@ package dk.hejselbak.rolemaster.critial;
 import java.net.HttpURLConnection;
 import java.util.List;
 
+import org.eclipse.microprofile.metrics.MetricUnits;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.info.Contact;
@@ -44,6 +46,7 @@ public class CriticalResource {
   }
 
   @GET
+  @Timed(name = "criticalTimes", description = "A measure of how long it takes to retrieve all the critical tables.", unit = MetricUnits.MILLISECONDS)
   public List<CriticalTable> list() {
     return service.listTables();
   }
@@ -53,6 +56,7 @@ public class CriticalResource {
   @Operation(summary = "Locate a specific Critical Table", description = "Returns the Critical Table, with the given short name")
   @APIResponse(responseCode = "200", description = "The table", content = @Content(schema = @Schema(implementation = CriticalTable.class)))
   @APIResponse(responseCode = "404", description = "Table not found, with the given shortname")
+  @Timed(name = "criticalTableTimes", description = "A measure of how long it takes to retrieve a critical table by shortname (ex. 'S')", unit = MetricUnits.MILLISECONDS)
   public CriticalTable getTable(@Parameter(description="The shortname of the critical table to list.", required=true) @PathParam("shortname") String shortName) {
     CriticalTable result = service.getCritTable(shortName);
     
@@ -67,7 +71,8 @@ public class CriticalResource {
   @APIResponse(responseCode = "200", description = "The critical entry", content = @Content(schema = @Schema(implementation = CriticalEntry.class)))
   @APIResponse(responseCode = "204", description = "No critical entry located. Most likely due to a invalid (larger than the table maximum) roll.")
   @APIResponse(responseCode = "400", description = "Entry not found, most likely due to an invalid roll or invalid severity")
-  public CriticalEntry hit(@Parameter(description="The shortname of the critical table to list.", required=true) @PathParam("shortname") String shortName, 
+  @Timed(name = "criticalEntryTimes", description = "A measure of how long it takes to retrieve a specific critical entry.)", unit = MetricUnits.MILLISECONDS)
+  public CriticalEntry hit(@Parameter(description="The shortname of the critical table to list.", required=true) @PathParam("shortname") String shortName,
       @Parameter(description="The modified roll of the critical.", required=true) @NotNull @QueryParam("roll") Integer roll, 
       @Parameter(description="The severity of the critical (for instance 'A', 'B', ...).", required=true) @NotNull @QueryParam("severity") String sev) {
     if (roll == null || roll <= 0) {

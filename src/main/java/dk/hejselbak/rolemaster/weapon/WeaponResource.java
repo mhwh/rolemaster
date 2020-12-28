@@ -43,6 +43,7 @@ public class WeaponResource {
 
   @Inject WeaponService service;
   private Integer maxRoll = 0;
+  private Integer numberOfHits = 0;
 
   public WeaponResource() {
     log.info("Starting Weapon Resource Service ...");
@@ -96,16 +97,23 @@ public class WeaponResource {
         );
 
 
+    // Collect metric on the highest roll and avg.
     if (roll > maxRoll) {
       maxRoll = roll;
     }
+    numberOfHits++;
 
     return service.hit(weapon, at, roll);
   }
 
-  @Gauge(name = "highestAttackSoFar", unit = MetricUnits.NONE, description = "The highest attack roll so far.")
-  public Integer highestAttackSoFar() {
+  @Gauge(name = "highestAttackLookup", unit = MetricUnits.NONE, description = "The highest attack roll so far.")
+  public Integer highestAttackLookup() {
     return maxRoll;
   }
-  
+
+  @Gauge(name = "avgAttackLookup", unit = MetricUnits.NONE, description = "The average attack roll so far.")
+  public Double avgAttackLookup() {
+    return (numberOfHits == 0) ? 0d : maxRoll/numberOfHits;
+  }
+
 }
