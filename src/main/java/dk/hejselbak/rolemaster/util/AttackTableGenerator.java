@@ -16,16 +16,25 @@ public class AttackTableGenerator {
     private int weapon_id;
     private int attackTable_seq;
 
+    // These must match the critical ID's in the database!
+    // S = 1 in the database
+    // P = 2
+    // ...
     private enum Crit {
-        S, P, K, B
+        NUL, S, P, K, B
     }
 
+    /**
+     * Generates SQL based on the input from the weapon txt file, located in the same directory as this file.
+     * @param args First argument is the id of the weaponfile (4.txt means weaponId = 4) to generate.
+     * @throws FileNotFoundException
+     */
     public static void main(String[] args) throws FileNotFoundException {
-        int w = 2;
         // Every weapon gets 2000 rows...
-        AttackTableGenerator atg = new AttackTableGenerator(w, w * 2000);
+        Integer wId = Integer.parseInt(args[0]);
+        AttackTableGenerator atg = new AttackTableGenerator(wId, wId * 2000);
 
-        atg.run("src/main/java/dk/hejselbak/rolemaster/util/" + w + ".txt");
+        atg.run("src/main/java/dk/hejselbak/rolemaster/util/" + wId + ".txt");
     }
 
     public AttackTableGenerator(int weapon_id, int attackTable_seq) {
@@ -52,7 +61,7 @@ public class AttackTableGenerator {
             append(hits);
         if (cs != null) {
             sb.append(',').append('\'').append(cs.name()).append('\'').
-                append(',').append(Crit.valueOf(ct).ordinal()+1);
+                append(',').append(Crit.valueOf(ct).ordinal());
         }
         sb.append(");");
         return sb.toString();
@@ -65,7 +74,7 @@ public class AttackTableGenerator {
             ", range=" + range +
             ", hits=" + hits +
             (cs != null ? ", cs=" + cs :"") +
-            (ct != null ? ", ct=" + Crit.valueOf(ct).ordinal()+1  :"") +
+            (ct != null ? ", ct=" + Crit.valueOf(ct).ordinal()  :"") +
             '}';
     }
 
