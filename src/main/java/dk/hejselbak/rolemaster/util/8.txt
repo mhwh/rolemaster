@@ -1,0 +1,1020 @@
+20
+5CK
+147 5BK
+143 5AK
+135 5AS
+134 5
+125 4
+101 3
+77 2
+53 1
+29 0
+19
+7DK
+CK
+145 7BK
+140 7BP
+AK
+P
+K
+A
+P
+6AK
+S
+P
+K
+S
+129 6
+118 5
+102 4
+88 3
+70 2
+54 1
+39 0
+18
+9EK
+148 9DK
+146 9DS
+CP
+K
+S
+P
+K
+S
+BP
+8BK
+S
+P
+K
+S
+P
+K
+AS
+P
+K
+S
+7AP
+K
+S
+P
+K
+S
+P
+K
+119 7
+116 6
+105 5
+93 4
+82 3
+71 2
+60 1
+49 0
+17
+11EK
+S
+K
+S
+DK
+S
+P
+K
+S
+10DP
+CK
+S
+P
+K
+S
+P
+K
+S
+9BP
+K
+S
+P
+K
+S
+P
+K
+S
+8AP
+K
+S
+P
+K
+S
+P
+K
+7AS
+P
+K
+S
+P
+K
+109 7
+106 6
+97 5
+88 4
+80 3
+71 2
+62 1
+54 0
+16
+10EK
+148 10DK
+144 10CK
+139 9CK
+BK
+131 9AK
+P
+K
+8AS
+P
+K
+S
+P
+K
+S
+P
+K
+119 8
+118 7
+107 6
+97 5
+86 4
+75 3
+65 2
+54 1
+44 0
+15
+10EK
+148 10DK
+143 10CK
+139 9CK
+136 9BP
+K
+P
+K
+P
+K
+S
+8BP
+K
+AS
+P
+K
+S
+P
+K
+S
+P
+7AK
+S
+P
+K
+S
+114 7
+109 6
+99 5
+89 4
+79 3
+69 2
+59 1
+49 0
+14
+13EK
+147 13DK
+145 13DS
+P
+K
+12CS
+P
+K
+S
+P
+K
+S
+11CP
+K
+S
+P
+BK
+S
+P
+K
+10BS
+P
+K
+S
+P
+AK
+S
+9AP
+K
+S
+P
+K
+S
+P
+8AK
+S
+P
+K
+109 8
+105 7
+98 6
+90 5
+83 4
+76 3
+68 2
+61 1
+54 0
+13
+13ES
+P
+S
+P
+K
+S
+DP
+12DK
+S
+P
+K
+S
+P
+K
+11CS
+P
+K
+S
+P
+K
+S
+10CP
+K
+S
+P
+BK
+S
+P
+9BK
+S
+P
+K
+S
+P
+K
+8BS
+P
+AK
+S
+P
+K
+S
+7AP
+K
+S
+P
+K
+S
+P
+6AK
+S
+99 6
+94 5
+87 4
+80 3
+73 2
+66 1
+59 0
+12
+11EK
+145 11DK
+140 10DK
+CK
+130 9CK
+S
+P
+K
+BS
+P
+K
+S
+P
+8BK
+S
+P
+K
+S
+P
+K
+S
+AP
+K
+7AS
+P
+K
+S
+P
+K
+S
+P
+K
+6AS
+P
+K
+99 6
+92 5
+82 4
+73 3
+63 2
+54 0
+11
+13EK
+142 12DK
+135 11DS
+P
+CK
+S
+P
+K
+S
+10CP
+K
+S
+P
+K
+S
+P
+9CK
+S
+BP
+K
+S
+P
+K
+8BS
+P
+K
+S
+P
+K
+S
+7BP
+K
+AS
+P
+K
+S
+P
+K
+6AS
+P
+K
+S
+P
+94 6
+92 5
+85 4
+78 3
+71 2
+64 0
+10
+17ES
+144 16ES
+142 16DS
+140 16DP
+S
+15DP
+S
+P
+K
+S
+P
+14DK
+CS
+P
+K
+S
+13CP
+K
+S
+P
+K
+S
+12CP
+K
+S
+P
+K
+S
+11BP
+K
+S
+P
+K
+10BS
+P
+K
+S
+P
+K
+9BS
+P
+AK
+S
+P
+K
+8AS
+P
+K
+S
+P
+7AK
+S
+P
+K
+89 7
+87 6
+81 5
+76 4
+70 3
+64 2
+59 0
+9
+17ES
+144 16ES
+142 16EP
+S
+P
+15ES
+DP
+S
+P
+S
+P
+14DS
+P
+S
+P
+S
+13DP
+S
+P
+S
+CP
+12CK
+S
+P
+K
+S
+P
+11CK
+S
+P
+K
+S
+10CP
+K
+S
+P
+K
+9BS
+P
+K
+S
+P
+K
+8BS
+P
+K
+S
+P
+7BK
+S
+P
+K
+AS
+P
+6AK
+S
+P
+K
+S
+5AP
+K
+S
+P
+K
+4AS
+79 4
+74 3
+69 2
+64 0
+8
+16EK
+P
+K
+P
+K
+P
+K
+P
+K
+15ES
+DP
+K
+S
+P
+K
+S
+P
+14DK
+S
+P
+CK
+S
+P
+K
+S
+P
+13CK
+S
+P
+K
+S
+P
+K
+S
+12CP
+K
+BS
+P
+K
+S
+P
+K
+11BS
+P
+K
+S
+P
+K
+S
+P
+K
+10BS
+AP
+K
+S
+P
+K
+S
+P
+9AK
+S
+P
+K
+S
+P
+K
+84 9
+82 8
+74 7
+66 6
+57 5
+49 4
+41 0
+7
+16ES
+P
+S
+P
+S
+P
+K
+S
+15EP
+K
+S
+P
+DK
+S
+P
+K
+14DS
+P
+K
+S
+P
+K
+S
+P
+13DK
+S
+P
+CK
+S
+P
+K
+S
+12CP
+K
+S
+P
+K
+S
+P
+K
+11CS
+P
+K
+S
+P
+BK
+S
+P
+10BK
+S
+P
+K
+S
+P
+K
+S
+9BP
+K
+S
+P
+AK
+S
+P
+K
+8AS
+P
+K
+S
+P
+K
+S
+79 8
+78 7
+70 6
+62 5
+54 4
+46 0
+6
+21ES
+145 21EP
+20ES
+P
+S
+P
+S
+19EP
+S
+P
+DS
+P
+S
+18DP
+S
+P
+K
+S
+17DP
+K
+S
+P
+K
+S
+16DP
+CK
+S
+P
+K
+15CS
+P
+K
+S
+P
+K
+S
+14CP
+K
+S
+P
+13CK
+BS
+P
+K
+S
+P
+12BK
+S
+P
+K
+S
+11BP
+K
+S
+P
+K
+S
+10BP
+AK
+S
+P
+K
+9AS
+P
+K
+S
+P
+K
+8AS
+P
+K
+S
+74 8
+73 7
+67 6
+62 5
+56 4
+51 0
+5
+24ES
+145 23ES
+141 22ES
+136 21ES
+134 21DS
+131 20DS
+127 19DS
+123 18DS
+118 17DK
+CS
+P
+K
+16CS
+P
+K
+S
+P
+15CK
+S
+P
+K
+14CS
+BP
+K
+S
+P
+13BK
+S
+P
+K
+12BS
+P
+K
+S
+P
+11BK
+S
+P
+K
+10AS
+P
+K
+S
+P
+9AK
+S
+P
+K
+8AS
+P
+K
+S
+P
+7AK
+S
+P
+K
+69 6
+64 5
+60 4
+56 0
+4
+18ES
+144 17ES
+139 16ES
+134 16DS
+15DS
+128 14DS
+126 14DK
+S
+P
+13DK
+S
+P
+CK
+S
+P
+12CK
+S
+P
+K
+S
+11CP
+K
+S
+P
+K
+10CS
+BP
+K
+S
+P
+K
+9BS
+P
+K
+AS
+P
+8AK
+S
+P
+K
+S
+P
+7AK
+89 7
+85 6
+80 5
+74 4
+69 3
+64 0
+3
+21ES
+144 20ES
+139 19ES
+134 18ES
+131 18DS
+129 17DS
+124 16DS
+119 15DS
+P
+S
+P
+CS
+14CP
+K
+S
+P
+K
+13CS
+P
+K
+S
+P
+12CK
+BS
+P
+K
+S
+11BP
+K
+S
+P
+K
+10BS
+AP
+K
+S
+P
+9AK
+S
+P
+K
+S
+84 8
+79 7
+74 6
+69 0
+2
+24ES
+144 23ES
+139 22ES
+133 21ES
+128 20ES
+126 20EK
+S
+K
+19ES
+DK
+S
+K
+S
+K
+18DS
+P
+K
+S
+P
+17DK
+S
+P
+K
+S
+16DP
+K
+S
+P
+CK
+S
+15CP
+K
+S
+P
+K
+14CS
+P
+K
+S
+P
+13CK
+S
+BP
+K
+S
+P
+12BK
+S
+P
+K
+S
+11BP
+K
+AS
+P
+K
+10AS
+P
+K
+S
+P
+K
+69 9
+64 8
+59 0
+1
+26ES
+145 25ES
+141 24ES
+137 23ES
+132 22ES
+128 21ES
+124 20ES
+DS
+120 19DS
+115 18DS
+P
+S
+P
+17DS
+P
+S
+P
+16DS
+P
+CS
+P
+15CS
+P
+K
+S
+P
+14CK
+S
+P
+13BK
+S
+P
+K
+S
+12BP
+K
+S
+AP
+11AK
+S
+P
+K
+S
+10AP
+K
+79 10
+77 9
+73 8
+69 0
