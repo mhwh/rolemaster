@@ -1,7 +1,3 @@
-insert into player(id, name) values(0, 'Player one');
-insert into player(id, name) values(1, 'Player two');
-insert into player(id, name) values(2, 'Player tree');
-
 insert into critical_table(id, name, short_name) values(1, 'Slash', 'S');
 insert into critical_table(id, name, short_name) values(2, 'Puncture', 'P'); 
 insert into critical_table(id, name, short_name) values(3, 'Krush', 'K'); 
@@ -5647,3 +5643,17 @@ insert into CriticalEntry(id, criticalTable_id, max_roll, severity, hits, stun, 
 insert into CriticalEntry(id, criticalTable_id, max_roll, severity, hits, stun, cannot_parry_rounds, penalty, crit_text) values(378, 4, 95, 'E', 25, 6, 6, -75, 'Blow to foes side.  Bruise ribs, a kidney and a lung.  Foe manages to remain standing.  Oh that hurts ya know!');
 insert into CriticalEntry(id, criticalTable_id, max_roll, severity, hits, bleed, bonus, crit_text) values(379, 4, 99, 'E', 30, 1, 20, 'Grip foes neck.  You shake him violently while attempting to choke him.  He passes out.  You can finish him if you want.');
 insert into CriticalEntry(id, criticalTable_id, max_roll, severity, crit_text) values(380, 4, 100, 'E', 'Your strike is frightening.  foes head snaps to one side.  Foe cannot breath.  He looks upon the world one last time and then dies.  You are horrified at his doom.');
+
+
+insert into player(id, name, hits, at, db) values(0, 'Player one', 153, 4, 88);
+insert into player(id, name, hits, at, db) values(1, 'Player two', 126, 9, 14);
+insert into player(id, name, hits, at, db) values(2, 'Player tree', 118, 68, 10);
+
+insert into player_weaponskill(id, player_id, weapon_id, ob) values(0, 0, 0, 65);
+insert into player_weaponskill(id, player_id, weapon_id, ob) values(1, 0, 3, 50);
+insert into player_weaponskill(id, player_id, weapon_id, ob) values(2, 1, 1, 55);
+insert into player_weaponskill(id, player_id, weapon_id, ob) values(3, 1, 0, 45);
+insert into player_weaponskill(id, player_id, weapon_id, ob) values(4, 2, 2, 65);
+insert into player_weaponskill(id, player_id, weapon_id, ob) values(5, 3, 0, 35);
+insert into player_weaponskill(id, player_id, weapon_id, ob) values(6, 3, 4, 55);
+insert into player_weaponskill(id, player_id, weapon_id, ob) values(7, 3, 2, 40);
