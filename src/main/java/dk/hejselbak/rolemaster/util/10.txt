@@ -1,0 +1,1382 @@
+20
+12EK
+P
+K
+P
+K
+P
+K
+DP
+K
+P
+K
+11DP
+K
+CP
+K
+P
+K
+P
+K
+P
+K
+10BP
+K
+P
+K
+P
+AK
+P
+K
+P
+K
+P
+9AK
+P
+K
+S
+114 9
+108 8
+97 7
+87 6
+76 5
+66 4
+55 3
+45 2
+34 1
+24 0
+19
+14EK
+P
+K
+P
+K
+P
+K
+DP
+K
+13DP
+K
+P
+K
+CP
+K
+P
+K
+12CP
+K
+P
+K
+P
+BK
+P
+K
+11BP
+K
+P
+K
+AP
+K
+P
+K
+P
+10AK
+P
+K
+P
+K
+P
+K
+109 10
+108 9
+99 8
+92 7
+83 6
+75 5
+67 4
+58 3
+50 2
+42 1
+34 0
+18
+16EK
+P
+K
+P
+K
+P
+K
+15EP
+K
+DP
+K
+P
+K
+P
+14DK
+P
+K
+P
+CK
+P
+13CK
+P
+K
+P
+K
+P
+K
+12CP
+K
+12BP
+K
+P
+K
+P
+11BK
+P
+K
+P
+AK
+P
+10AK
+P
+K
+P
+K
+P
+K
+9AP
+K
+P
+K
+99 9
+97 8
+90 7
+83 6
+77 5
+70 4
+63 3
+57 2
+50 1
+44 0
+17
+18EK
+P
+K
+P
+K
+P
+17EK
+P
+K
+P
+K
+P
+16DK
+P
+K
+P
+K
+15DP
+K
+P
+K
+P
+K
+14DP
+K
+CP
+K
+P
+K
+13CP
+K
+P
+K
+P
+12CK
+P
+K
+BP
+K
+P
+11BK
+P
+K
+P
+K
+10BP
+AK
+P
+K
+P
+K
+9AP
+K
+P
+K
+P
+K
+8AP
+K
+P
+K
+89 8
+88 7
+82 6
+77 5
+71 4
+65 3
+60 2
+54 1
+49 0
+16
+19EK
+P
+K
+P
+K
+P
+18EK
+P
+K
+P
+DK
+P
+17DK
+P
+K
+P
+K
+P
+16DK
+P
+K
+CP
+K
+P
+15CK
+P
+K
+P
+K
+P
+14CK
+P
+BK
+P
+K
+P
+13BK
+P
+K
+AP
+K
+12AP
+K
+P
+K
+P
+K
+11AP
+K
+P
+K
+99 11
+97 10
+91 9
+85 8
+79 7
+74 6
+68 5
+62 4
+56 3
+50 2
+44 1
+39 0
+15
+19EK
+P
+K
+P
+K
+P
+18EK
+P
+K
+P
+K
+DP
+17DK
+P
+K
+P
+K
+16DP
+K
+P
+K
+P
+K
+15CP
+K
+P
+K
+P
+14CK
+P
+K
+P
+K
+P
+13CK
+BP
+K
+P
+K
+P
+12BK
+P
+K
+P
+AK
+11AP
+K
+P
+K
+P
+K
+10AP
+K
+P
+K
+S
+94 9
+88 8
+83 7
+77 6
+71 5
+66 4
+60 3
+55 2
+49 1
+44 0
+14
+22EK
+P
+K
+P
+K
+21EP
+K
+P
+K
+P
+20EK
+DP
+K
+P
+19DK
+P
+K
+P
+K
+18DP
+K
+P
+K
+17CP
+K
+P
+K
+P
+16CK
+P
+K
+P
+K
+15CP
+K
+P
+K
+14CP
+K
+P
+BK
+P
+13BK
+P
+K
+P
+12BK
+P
+K
+AP
+K
+11AP
+K
+P
+K
+P
+10AK
+P
+K
+P
+9AK
+89 9
+85 8
+81 7
+76 6
+71 5
+67 4
+62 3
+58 2
+53 1
+49 0
+13
+22EK
+P
+K
+P
+K
+21EP
+K
+P
+K
+20EP
+K
+P
+K
+P
+19DK
+P
+K
+P
+18DK
+P
+K
+P
+17DK
+P
+K
+P
+K
+16DP
+K
+P
+CK
+15CP
+K
+P
+K
+14CP
+K
+P
+K
+P
+13CK
+P
+K
+P
+K
+12CP
+BK
+P
+11BK
+P
+K
+P
+K
+10BP
+K
+P
+K
+9AP
+K
+P
+K
+P
+8AK
+P
+K
+P
+7AK
+P
+K
+P
+6AK
+79 6
+75 5
+71 4
+67 3
+62 2
+58 1
+54 0
+12
+18EK
+P
+K
+P
+K
+P
+17EK
+P
+K
+DP
+K
+P
+16DK
+P
+K
+P
+K
+15DP
+CK
+P
+K
+P
+K
+14CP
+K
+P
+K
+P
+K
+13CP
+K
+P
+BK
+P
+12BK
+P
+K
+P
+K
+P
+11BK
+P
+K
+P
+K
+AP
+10AK
+P
+K
+P
+K
+9AP
+K
+P
+K
+S
+94 9
+93 8
+87 7
+82 6
+76 5
+70 4
+65 3
+58 2
+54 0
+11
+20EK
+P
+K
+P
+K
+19EP
+K
+P
+K
+P
+18EK
+P
+DK
+P
+17DK
+P
+K
+P
+K
+16DP
+K
+P
+K
+15DP
+CK
+P
+K
+P
+14CK
+P
+K
+P
+13CK
+P
+K
+P
+K
+12CP
+BK
+P
+K
+11BP
+K
+P
+K
+P
+10BK
+P
+K
+P
+9BK
+AP
+K
+P
+K
+8AP
+K
+P
+K
+7AP
+K
+89 7
+86 6
+82 5
+77 4
+73 3
+68 2
+64 0
+10
+24EK
+P
+K
+P
+23EK
+P
+K
+P
+22EK
+P
+K
+P
+21DK
+21EP
+DK
+P
+20DK
+P
+K
+P
+19DK
+P
+K
+P
+18DK
+P
+CK
+P
+17CK
+P
+K
+P
+16CK
+P
+K
+P
+15CK
+P
+K
+P
+14CK
+P
+K
+14BP
+13BK
+P
+K
+P
+12BK
+P
+K
+P
+11BK
+P
+K
+P
+10AK
+P
+K
+P
+9AK
+P
+8AK
+9AP
+8AK
+S
+84 8
+82 7
+78 6
+74 5
+70 4
+66 3
+62 2
+59 0
+9
+24EK
+P
+K
+P
+23EK
+P
+K
+P
+22EK
+P
+K
+P
+21EK
+P
+K
+20EP
+DK
+P
+K
+19DP
+K
+P
+K
+18DP
+K
+P
+K
+17DP
+K
+P
+16DK
+P
+K
+CP
+15CK
+P
+K
+P
+14CK
+P
+K
+P
+13CK
+P
+K
+12CP
+K
+P
+K
+11CP
+K
+BP
+K
+10BP
+K
+P
+K
+9BP
+K
+P
+8BK
+P
+K
+P
+7BK
+P
+AK
+P
+6AK
+P
+K
+P
+5AK
+P
+K
+4AS
+74 4
+71 3
+67 2
+64 0
+8
+17EK
+P
+K
+P
+K
+P
+K
+P
+16EK
+P
+DK
+P
+K
+P
+K
+15DP
+K
+P
+K
+P
+CK
+P
+14CK
+DP
+CK
+P
+K
+P
+K
+13CP
+K
+P
+K
+P
+K
+P
+BK
+12BP
+K
+P
+K
+P
+K
+P
+11BK
+P
+K
+P
+K
+P
+K
+10AP
+K
+P
+K
+P
+K
+P
+9AK
+P
+K
+P
+K
+P
+K
+8AS
+84 8
+77 7
+70 6
+63 5
+56 4
+49 0
+7
+17EK
+P
+K
+P
+K
+P
+K
+16EP
+K
+P
+K
+P
+K
+DP
+15DK
+P
+K
+P
+K
+P
+K
+14DP
+K
+CP
+DK
+P
+K
+P
+13DK
+P
+CK
+P
+K
+P
+K
+12CP
+K
+P
+K
+P
+K
+P
+11CK
+P
+K
+P
+K
+BP
+10BK
+P
+K
+P
+K
+P
+K
+9BP
+K
+P
+K
+P
+K
+AP
+8AK
+P
+K
+P
+K
+P
+K
+7AP
+K
+79 7
+74 6
+67 5
+60 4
+54 0
+6
+22EK
+P
+K
+P
+K
+21EP
+K
+P
+K
+P
+20EK
+P
+K
+P
+K
+19DP
+K
+P
+K
+P
+18DK
+P
+K
+P
+17DK
+P
+K
+P
+K
+16DP
+K
+CP
+K
+P
+15CK
+P
+K
+P
+K
+14CP
+K
+P
+K
+P
+13CK
+P
+BK
+P
+12BK
+P
+K
+P
+K
+11BP
+K
+P
+K
+P
+10BK
+P
+K
+P
+AK
+9AP
+K
+P
+K
+P
+8AK
+P
+K
+P
+7AK
+P
+K
+S
+74 7
+73 6
+68 5
+63 4
+59 0
+5
+25EK
+P
+K
+P
+24EK
+P
+K
+P
+23EK
+P
+K
+P
+22EK
+P
+K
+P
+21EK
+P
+DK
+P
+20DK
+P
+K
+P
+19DK
+P
+K
+P
+18DK
+P
+K
+P
+17DK
+P
+K
+P
+16DK
+CP
+K
+P
+15CK
+P
+K
+14CP
+K
+P
+K
+13CP
+K
+BP
+K
+12BP
+K
+P
+K
+11BP
+K
+P
+K
+10BP
+K
+P
+K
+9BP
+K
+P
+AK
+8AP
+K
+P
+K
+7AP
+K
+P
+K
+6AP
+K
+P
+K
+5AP
+K
+69 5
+67 4
+64 0
+4
+18EK
+P
+K
+P
+K
+17EP
+K
+P
+K
+16EP
+K
+P
+K
+P
+15EK
+DP
+K
+P
+14DK
+P
+K
+P
+K
+13DP
+K
+P
+K
+12DP
+CK
+P
+K
+P
+11CK
+P
+K
+P
+10CK
+P
+K
+BP
+9BK
+P
+K
+P
+K
+8AP
+K
+P
+K
+7AP
+K
+99 7
+966
+92 5
+87 4
+83 3
+79 0
+3
+21EK
+P
+K
+P
+K
+20EP
+K
+P
+K
+19EP
+K
+P
+K
+18EP
+K
+P
+17EK
+P
+DK
+P
+K
+16DP
+K
+P
+K
+15DP
+K
+P
+K
+14DP
+K
+P
+CK
+13CP
+K
+P
+K
+P
+12CK
+P
+K
+BP
+11BK
+P
+K
+P
+10BK
+P
+AK
+P
+9AK
+P
+K
+P
+8AK
+S
+94 8
+92 7
+88 6
+84 0
+2
+24EK
+P
+K
+P
+K
+23EP
+K
+P
+K
+22EP
+K
+P
+K
+P
+21EK
+P
+K
+P
+20EK
+P
+K
+P
+K
+19EP
+K
+P
+K
+18DP
+K
+P
+K
+P
+17DK
+P
+K
+P
+16DK
+P
+K
+P
+K
+15DP
+K
+P
+K
+14CP
+K
+P
+K
+P
+13CK
+P
+K
+P
+12CK
+P
+BK
+P
+K
+11BP
+K
+P
+K
+10BP
+AK
+P
+K
+P
+9AK
+P
+K
+79 9
+78 8
+74 0
+1
+26EK
+P
+K
+P
+25EK
+P
+K
+24EP
+K
+P
+K
+23EP
+K
+P
+22EK
+P
+K
+P
+21EK
+P
+K
+20EP
+K
+P
+K
+19DP
+K
+P
+18DK
+P
+K
+P
+17DK
+P
+K
+16DP
+K
+P
+K
+15DP
+K
+P
+14CK
+P
+K
+P
+13CK
+P
+K
+12CP
+BK
+P
+K
+11BP
+K
+P
+10AK
+P
+K
+P
+9AK
+89 9
+87 8
+84 0
