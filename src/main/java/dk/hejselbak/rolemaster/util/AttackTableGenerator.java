@@ -88,7 +88,21 @@ public class AttackTableGenerator {
                 // int
                 i = scanner.nextInt();
                 //   >= 40 er det range
-                if (i >= 21) {
+                if (lastEntryWasRange) { // never AT after a range!
+                    hits = i;
+                    cs = null;
+                    ct = null;
+                    dumpRow();
+                    lastEntryWasRange = false;
+                } else if (i > 20 || scanner.hasNextInt()) { // It is a range, as there will be a int after this, and it will never be a AT
+                    range = i;
+                    lastEntryWasRange = true;
+                } else { // AT
+                    at = i;
+                    range = 150;
+                    lastEntryWasRange = true;
+                }
+/*                if (scanner.hasNextInt()) { //i >= 21
                     range = i;
                     lastEntryWasRange = true;
                 } else {
@@ -105,7 +119,7 @@ public class AttackTableGenerator {
                         range = 150;
                         lastEntryWasRange = true;
                     }
-                }
+                } */
             } else {
                 // ! int
                 entry = scanner.next();
