@@ -47,7 +47,6 @@ public class AttackTableGenerator {
     }
 
     public String generateInsert() {
-        // insert into AttackTable(id, weapon_id, at, roll, hit, crit_severity, crit_type) values(1, 0, 1, 95, 8, 'A', 'S');
         StringBuilder sb = new StringBuilder();
         sb.append("insert into AttackTableEntry(id, weapon_id, at, roll, hits");
         if (cs != null) {
@@ -79,81 +78,66 @@ public class AttackTableGenerator {
     }
 
     public void run(String filename) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File(filename));
-        boolean lastEntryWasRange = false;
-        String entry;
-        int i;
-        while (scanner.hasNext()) {
-            if (scanner.hasNextInt()) {
-                // int
-                i = scanner.nextInt();
-                //   >= 40 er det range
-                if (lastEntryWasRange) { // never AT after a range!
-                    hits = i;
-                    cs = null;
-                    ct = null;
-                    dumpRow();
-                    lastEntryWasRange = false;
-                } else if (i > 20 || scanner.hasNextInt()) { // It is a range, as there will be a int after this, and it will never be a AT
-                    range = i;
-                    lastEntryWasRange = true;
-                } else { // AT
-                    at = i;
-                    range = 150;
-                    lastEntryWasRange = true;
-                }
-/*                if (scanner.hasNextInt()) { //i >= 21
-                    range = i;
-                    lastEntryWasRange = true;
-                } else {
-                    //   vis det kommer efter en range er det et hit!
-                    if (lastEntryWasRange) {
+        try (Scanner scanner = new Scanner(new File(filename))) {
+            boolean lastEntryWasRange = false;
+            int i;
+            while (scanner.hasNext()) {
+                if (scanner.hasNextInt()) {
+                    // int
+                    i = scanner.nextInt();
+                    //   >= 40 er det range
+                    if (lastEntryWasRange) { // never AT after a range!
                         hits = i;
                         cs = null;
                         ct = null;
                         dumpRow();
                         lastEntryWasRange = false;
-                    } else {
-                        //   hvis det IKKE kommer efter en range er det AT
+                    } else if (i > 20 || scanner.hasNextInt()) { // It is a range, as there will be a int after this, and it will never be a AT
+                        range = i;
+                        lastEntryWasRange = true;
+                    } else { // AT
                         at = i;
                         range = 150;
                         lastEntryWasRange = true;
                     }
-                } */
-            } else {
-                // ! int
-                entry = scanner.next();
-                if (!lastEntryWasRange) {
-                    range--;
+                } else {
+                    // ! int
+                    if (!lastEntryWasRange) range--;
+                    handleCritEntry(scanner.next());
+                    lastEntryWasRange = false;
+                    dumpRow();
                 }
 
-                if (entry.matches("\\d+[a-eA-E][^a-eA-E]")) {
-                    //    hit + CritSev + CritType
-                    hits = Integer.parseInt(entry.split("\\D")[0]);
-                    cs = CritSeverity.valueOf("" + entry.charAt(entry.length()-2));
-                    ct = "" + entry.charAt(entry.length()-1);
-                    ct.toUpperCase();
-                } else if (entry.matches("[a-eA-E][^a-eA-E]")) {
-                    // CritSev + CritType
-                    cs = CritSeverity.valueOf(""+entry.charAt(0));
-                    ct = "" + entry.charAt(1);
-                    ct.toUpperCase();
-                } else if (entry.matches("\\d+[a-eA-E]")) {
-                    //    hit + critSev, brug den sidste critType
-                    hits = Integer.parseInt(entry.split("\\D")[0]);
-                    cs = CritSeverity.valueOf("" + entry.charAt(entry.length()-1));
-                } else if (entry.matches("[^a-eA-E]")) {
-                    //    critType, brug den sidste critSev og hit
-                    ct = entry.toUpperCase();
-                } else if (entry.matches("[a-eA-E]")) {
-                    //    critSev, brug det sidste hit, og crittye
-                    cs = CritSeverity.valueOf(entry.toUpperCase());
-                }
-
-                lastEntryWasRange = false;
-                dumpRow();
             }
-
         }
+    }
+
+    private void handleCritEntry(String entry) {
+        if (entry.matches("\\d+[a-eA-E][^a-eA-E]")) {
+            //    hit + CritSev + CritType
+            hits = Integer.parseInt(entry.split("\\D")[0]);
+            cs = CritSeverity.valueOf(lastChar(entry, 2));
+            ct = lastChar(entry, 1);
+        } else if (entry.matches("[a-eA-E][^a-eA-E]")) {
+            // CritSev + CritType
+            cs = CritSeverity.valueOf("" + entry.charAt(0));
+            ct = "" + entry.charAt(1);
+        } else if (entry.matches("\\d+[a-eA-E]")) {
+            //    hit + critSev, brug den sidste critType
+            hits = Integer.parseInt(entry.split("\\D")[0]);
+            cs = CritSeverity.valueOf(lastChar(entry, 1));
+        } else if (entry.matches("[^a-eA-E]")) {
+            //    critType, brug den sidste critSev og hit
+            ct = entry.toUpperCase();
+        } else if (entry.matches("[a-eA-E]")) {
+            //    critSev, brug det sidste hit, og crittye
+            cs = CritSeverity.valueOf(entry.toUpperCase());
+        }
+    }
+
+    private String lastChar(String entry, int offset) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(entry.charAt(entry.length() - offset));
+        return sb.toString().toUpperCase();
     }
 }
