@@ -15,8 +15,8 @@ public class AttackTableGenerator {
     private CritSeverity cs;
     private String ct; // CritType
 
-    private int weapon_id;
-    private int attackTable_seq;
+    private int weaponId;
+    private int attackTableSeq;
 
     // These must match the critical ID's in the database!
     // S = 1 in the database
@@ -39,9 +39,9 @@ public class AttackTableGenerator {
         atg.run("src/main/java/dk/hejselbak/rolemaster/util/" + wId + ".txt");
     }
 
-    public AttackTableGenerator(int weapon_id, int attackTable_seq) {
-        this.weapon_id = weapon_id;
-        this.attackTable_seq = attackTable_seq;
+    public AttackTableGenerator(int weaponId, int attackTableSeq) {
+        this.weaponId = weaponId;
+        this.attackTableSeq = attackTableSeq;
     }
 
     public void dumpRow() {
@@ -55,8 +55,8 @@ public class AttackTableGenerator {
             sb.append(", crit_severity, criticalTable_id");
         }
         sb.append(") values(").
-            append(attackTable_seq++).append(',').
-            append(weapon_id).append(',').
+            append(attackTableSeq++).append(',').
+            append(weaponId).append(',').
             append(at).append(',').
             append(range).append(',').
             append(hits);
