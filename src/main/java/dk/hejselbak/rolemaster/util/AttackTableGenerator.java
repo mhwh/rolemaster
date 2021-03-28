@@ -2,7 +2,9 @@ package dk.hejselbak.rolemaster.util;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Optional;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 import dk.hejselbak.rolemaster.critial.CritSeverity;
 
@@ -113,31 +115,12 @@ public class AttackTableGenerator {
     }
 
     private void handleCritEntry(String entry) {
-        if (entry.matches("\\d+[a-eA-E][^a-eA-E]")) {
-            //    hit + CritSev + CritType
-            hits = Integer.parseInt(entry.split("\\D")[0]);
-            cs = CritSeverity.valueOf(lastChar(entry, 2));
-            ct = lastChar(entry, 1);
-        } else if (entry.matches("[a-eA-E][^a-eA-E]")) {
-            // CritSev + CritType
-            cs = CritSeverity.valueOf("" + entry.charAt(0));
-            ct = "" + entry.charAt(1);
-        } else if (entry.matches("\\d+[a-eA-E]")) {
-            //    hit + critSev, brug den sidste critType
-            hits = Integer.parseInt(entry.split("\\D")[0]);
-            cs = CritSeverity.valueOf(lastChar(entry, 1));
-        } else if (entry.matches("[^a-eA-E]")) {
-            //    critType, brug den sidste critSev og hit
-            ct = entry.toUpperCase();
-        } else if (entry.matches("[a-eA-E]")) {
-            //    critSev, brug det sidste hit, og crittye
-            cs = CritSeverity.valueOf(entry.toUpperCase());
+        Optional<CriticalEntryParser> oParser = Stream.of(CriticalEntryParser.Parsers).filter(e -> e.match(entry)).findFirst();
+        if (oParser.isPresent()) {
+            CriticalEntryParser parser = oParser.get();
+            if (parser.getHits().isPresent()) hits = parser.getHits().get();
+            if (parser.getCritSev().isPresent()) cs = parser.getCritSev().get();
+            if (parser.getCritType().isPresent()) ct = parser.getCritType().get();
         }
-    }
-
-    private String lastChar(String entry, int offset) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(entry.charAt(entry.length() - offset));
-        return sb.toString().toUpperCase();
     }
 }
