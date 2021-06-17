@@ -1,6 +1,6 @@
 package dk.hejselbak.rolemaster.weapon;
 
-import dk.hejselbak.rolemaster.critial.CritSeverity;
+import dk.hejselbak.rolemaster.critical.CritSeverity;
 import org.junit.jupiter.api.Test;
 
 import io.quarkus.test.junit.QuarkusTest;

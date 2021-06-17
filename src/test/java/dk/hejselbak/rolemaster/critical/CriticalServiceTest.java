@@ -1,9 +1,5 @@
 package dk.hejselbak.rolemaster.critical;
 
-import dk.hejselbak.rolemaster.critial.CritSeverity;
-import dk.hejselbak.rolemaster.critial.CriticalTable;
-import dk.hejselbak.rolemaster.critial.CriticalEntry;
-import dk.hejselbak.rolemaster.critial.CriticalService;
 import org.junit.jupiter.api.Test;
 
 import io.quarkus.test.junit.QuarkusTest;

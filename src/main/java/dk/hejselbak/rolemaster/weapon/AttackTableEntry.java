@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import dk.hejselbak.rolemaster.critial.CritSeverity;
+import dk.hejselbak.rolemaster.critical.CritSeverity;
 import lombok.Getter;
 
 @XmlRootElement(name = "AttackTableEntry")

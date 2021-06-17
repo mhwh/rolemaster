@@ -4,7 +4,7 @@ import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import dk.hejselbak.rolemaster.critial.CritSeverity;
+import dk.hejselbak.rolemaster.critical.CritSeverity;
 
 @XmlRootElement
 public class AttackResult {

@@ -1,4 +1,4 @@
-package dk.hejselbak.rolemaster.critial;
+package dk.hejselbak.rolemaster.critical;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

@@ -1,4 +1,4 @@
-package dk.hejselbak.rolemaster.critial;
+package dk.hejselbak.rolemaster.critical;
 
 import java.util.SortedSet;
 
