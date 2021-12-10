@@ -81,7 +81,7 @@ insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text)
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(69, 'BOWS', 90, 1, 'You let your arrow fly much too soon. You strike 20 feet short of target. You are out 2 rounds.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(70, 'BOWS', 95, 1, 'Slip and fall down. You are stunned for 6 rounds, and unable to parry 2 rounds. Your shot goes astray.');
 insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(71, 'BOWS', 99, 1, 'Break your bow. You are stunned and unable to parry for 4 rounds of action. Good luck, pal.');
-insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(72, 'BOWS', 100, 1, 'Poor judgement. You let arrow fly and lose an ear. +5 hots. You take 2 hits per round.');
+insert into FumbleEntry(id, fumble_group, max_roll, fumbleTable_id, fumble_text) values(72, 'BOWS', 100, 1, 'Poor judgement. You let arrow fly and lose an ear. +5 hits. You take 2 hits per round.');
 
 
 insert into weapon(id, name, fumble, weaponGroup) values(0, 'Dagger', 1, 'ONE_HANDED_SLASHING');
@@ -5645,15 +5645,15 @@ insert into CriticalEntry(id, criticalTable_id, max_roll, severity, hits, bleed,
 insert into CriticalEntry(id, criticalTable_id, max_roll, severity, crit_text) values(380, 4, 100, 'E', 'Your strike is frightening.  foes head snaps to one side.  Foe cannot breath.  He looks upon the world one last time and then dies.  You are horrified at his doom.');
 
 
-insert into player(id, name, hits, at, db) values(0, 'Player one', 153, 4, 88);
-insert into player(id, name, hits, at, db) values(1, 'Player two', 126, 9, 14);
-insert into player(id, name, hits, at, db) values(2, 'Player tree', 118, 68, 10);
+-- insert into player(id, name, hits, at, db) values(0, 'Player one', 153, 4, 88);
+-- insert into player(id, name, hits, at, db) values(1, 'Player two', 126, 9, 14);
+-- insert into player(id, name, hits, at, db) values(2, 'Player tree', 118, 68, 10);
 
-insert into player_weaponskill(id, player_id, weapon_id, ob) values(0, 0, 0, 65);
-insert into player_weaponskill(id, player_id, weapon_id, ob) values(1, 0, 3, 50);
-insert into player_weaponskill(id, player_id, weapon_id, ob) values(2, 1, 1, 55);
-insert into player_weaponskill(id, player_id, weapon_id, ob) values(3, 1, 0, 45);
-insert into player_weaponskill(id, player_id, weapon_id, ob) values(4, 2, 2, 65);
-insert into player_weaponskill(id, player_id, weapon_id, ob) values(5, 3, 0, 35);
-insert into player_weaponskill(id, player_id, weapon_id, ob) values(6, 3, 4, 55);
-insert into player_weaponskill(id, player_id, weapon_id, ob) values(7, 3, 2, 40);
+-- insert into player_weaponskill(id, player_id, weapon_id, ob) values(0, 0, 0, 65);
+-- insert into player_weaponskill(id, player_id, weapon_id, ob) values(1, 0, 3, 50);
+-- insert into player_weaponskill(id, player_id, weapon_id, ob) values(2, 1, 1, 55);
+-- insert into player_weaponskill(id, player_id, weapon_id, ob) values(3, 1, 0, 45);
+-- insert into player_weaponskill(id, player_id, weapon_id, ob) values(4, 2, 2, 65);
+-- insert into player_weaponskill(id, player_id, weapon_id, ob) values(5, 3, 0, 35);
+-- insert into player_weaponskill(id, player_id, weapon_id, ob) values(6, 3, 4, 55);
+-- insert into player_weaponskill(id, player_id, weapon_id, ob) values(7, 3, 2, 40);
