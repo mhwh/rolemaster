@@ -25,7 +25,8 @@ public class AttackTableGenerator implements AttackTableEntryStateContext {
         int wId = Integer.parseInt(args[0]);
         AttackTableGenerator atg = new AttackTableGenerator(wId, wId * 2000);
 
-        atg.run("src/main/java/dk/hejselbak/rolemaster/util/" + wId + ".txt");
+//        atg.run("src/main/java/dk/hejselbak/rolemaster/util/" + wId + ".txt");
+        atg.run("" + wId + ".txt");
     }
 
     public AttackTableGenerator(int weaponId, int attackTableSeq) {
