@@ -54,7 +54,7 @@ public class FumbleResource {
 
   @GET
   @Timed(name = "fumbleTimes", description = "A measure of how long it takes to retrieve all fumble tables", unit = MetricUnits.MILLISECONDS)
-  public List<FumbleTable> list() {
+  public List<FumbleTableSuper> list() {
     return service.listTables();
   }
 

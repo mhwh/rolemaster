@@ -2,9 +2,7 @@ package dk.hejselbak.rolemaster.util;
 
 import dk.hejselbak.rolemaster.critical.CritSeverity;
 import dk.hejselbak.rolemaster.critical.CriticalType;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class AttackTableEntryStateHitCritSevAndType extends AttackTableEntryState {
 
     public AttackTableEntryStateHitCritSevAndType() {

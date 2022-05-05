@@ -24,12 +24,11 @@ public class CriticalServiceTest {
         assertEquals("Slash", ct.getName());
     }
 
-
     @Test
     public void testGetCriticalMinimum() {
         CriticalEntry ce = cs.getCritcal("S", CritSeverity.A, 1);
         assertNotNull(ce);
-        assert(ce.getHits() == null);
+        assert (ce.getHits() == null);
         assertEquals(5, ce.getMax_roll());
         assertEquals("Weak strike.", ce.getText());
     }
@@ -38,7 +37,7 @@ public class CriticalServiceTest {
     public void testGetCriticalMaximum() {
         CriticalEntry ce = cs.getCritcal("S", CritSeverity.E, 100);
         assertNotNull(ce);
-        assert(ce.getHits() != null);
+        assert (ce.getHits() != null);
         assertEquals(10, ce.getHits());
         assertEquals(12, ce.getStun());
         assertEquals(12, ce.getCannot_parry_rounds());
@@ -49,9 +48,9 @@ public class CriticalServiceTest {
         CriticalEntry ce = cs.getCritcal("S", CritSeverity.C, 66);
         System.out.println(ce.toString());
         assertNotNull(ce);
-        assert(ce.getHits() != null);
+        assert (ce.getHits() != null);
         assertEquals(6, ce.getHits());
-        assert(ce.getStun() == null);
+        assert (ce.getStun() == null);
         assertEquals(3, ce.getCannot_parry_rounds());
         assertEquals(-90, ce.getPenalty());
     }

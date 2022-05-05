@@ -2,23 +2,21 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>dk.hejselbak</groupId>
-  <artifactId>rolemaster</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <groupId>org.acme</groupId>
+  <artifactId>code-with-quarkus</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
   <properties>
-     <compiler-plugin.version>3.8.1</compiler-plugin.version>
-    <jacoco.version>0.8.4</jacoco.version>
+    <compiler-plugin.version>3.8.1</compiler-plugin.version>
+    <failsafe.useModulePath>false</failsafe.useModulePath>
+    <maven.compiler.release>11</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+    <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
+    <quarkus.platform.version>2.8.1.Final</quarkus.platform.version>
+    <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+
     <lombok.version>1.18.10</lombok.version>
-     <maven.compiler.parameters>true</maven.compiler.parameters>
-     <maven.compiler.source>11</maven.compiler.source>
-     <maven.compiler.target>11</maven.compiler.target>
-     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-     <quarkus-plugin.version>1.13.7.Final</quarkus-plugin.version>
-     <quarkus.platform.version>1.13.7.Final</quarkus.platform.version>
-     <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
-     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-     <surefire-plugin.version>2.22.2</surefire-plugin.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -51,16 +49,6 @@
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
     <dependency>
-      <groupId>javax.ws.rs</groupId>
-      <artifactId>javax.ws.rs-api</artifactId>
-      <version>2.1</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>3.1.0</version>
-    </dependency>
-    <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
@@ -86,6 +74,14 @@
       <version>${lombok.version}</version>
       <scope>provided</scope>
     </dependency>
+
+    <!-- dependensies present in the new, but NOT in the old -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-arc</artifactId>
+    </dependency>
+
+    <!-- Present in the old POM, but not in the new -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-metrics</artifactId>
@@ -95,26 +91,26 @@
       <artifactId>quarkus-junit5-mockito</artifactId>
       <scope>test</scope>
     </dependency>
+    <!-- 
+    <dependency>
+      <groupId>javax.ws.rs</groupId>
+      <artifactId>javax.ws.rs-api</artifactId>
+      <version>2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+  -->
+
   </dependencies>
   <build>
     <plugins>
-    <plugin>
-      <artifactId>maven-assembly-plugin</artifactId>
-      <configuration>
-        <archive>
-          <manifest>
-            <mainClass>fully.qualified.MainClass</mainClass>
-          </manifest>
-        </archive>
-        <descriptorRefs>
-          <descriptorRef>jar-with-dependencies</descriptorRef>
-        </descriptorRefs>
-      </configuration>
-    </plugin>
       <plugin>
-        <groupId>io.quarkus</groupId>
+        <groupId>${quarkus.platform.group-id}</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>
-        <version>${quarkus-plugin.version}</version>
+        <version>${quarkus.platform.version}</version>
         <extensions>true</extensions>
         <executions>
           <execution>
@@ -129,38 +125,21 @@
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${compiler-plugin.version}</version>
+        <configuration>
+          <compilerArgs>
+            <arg>-parameters</arg>
+          </compilerArgs>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${surefire-plugin.version}</version>
         <configuration>
-          <systemProperties>
+          <systemPropertyVariables>
             <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-          </systemProperties>
+            <maven.home>${maven.home}</maven.home>
+          </systemPropertyVariables>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>${jacoco.version}</version>
-        <executions>
-          <execution>
-            <id>default-prepare-agent</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>default-report</id>
-            <goals>
-              <goal>report</goal>
-            </goals>
-            <configuration>
-              <dataFile>${project.build.directory}/jacoco.exec</dataFile>
-              <outputDirectory>${project.reporting.outputDirectory}/jacoco</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>
@@ -184,10 +163,11 @@
                   <goal>verify</goal>
                 </goals>
                 <configuration>
-                  <systemProperties>
+                  <systemPropertyVariables>
                     <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
                     <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                  </systemProperties>
+                    <maven.home>${maven.home}</maven.home>
+                  </systemPropertyVariables>
                 </configuration>
               </execution>
             </executions>

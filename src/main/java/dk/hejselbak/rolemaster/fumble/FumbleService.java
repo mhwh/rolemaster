@@ -21,8 +21,8 @@ public class FumbleService {
         log.info("Starting Fumble Service ...");
     }
 
-    public List<FumbleTable> listTables() {
-        List<FumbleTable> result = em.createQuery("SELECT ft from FumbleTable ft", FumbleTable.class).getResultList();
+    public List<FumbleTableSuper> listTables() {
+        List<FumbleTableSuper> result = em.createQuery("SELECT ft from FumbleTable ft", FumbleTableSuper.class).getResultList();
         log.debug("#" + result.size() + " number of fumble tables returned in the list...");
         return result;
     }

@@ -1,24 +1,18 @@
 package dk.hejselbak.rolemaster.player;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 
-import dk.hejselbak.rolemaster.weapon.Range;
 import dk.hejselbak.rolemaster.weapon.Weapon;
 import lombok.Getter;
 import lombok.ToString;
-import lombok.extern.slf4j.Slf4j;
 
 @Entity
 @Table(name="weaponskill")
 @ToString
-@Slf4j
 public class PlayerWeapon implements Comparable<PlayerWeapon> {
     @XmlElement
     @Getter

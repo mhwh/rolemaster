@@ -63,6 +63,10 @@ public class Weapon implements Comparable<Weapon> {
       attackResult = new AttackResult(ate.getHits(), ate.getCritSeverity(), ate.getCriticalTable());
     }
 
+    if (log.isDebugEnabled()) {
+      log.debug("Attack on at " + at + ", roll=" + roll + ". Resultet in : " + attackResult);
+    }
+
     return attackResult;
   }
 }
